@@ -1,4 +1,4 @@
-package at.tu.graz.coffee
+package at.tu.graz.coffee.model
 
 import at.tu.graz.coffee.model.Review
 import junit.framework.TestCase
