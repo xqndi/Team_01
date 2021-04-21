@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_menu_gallery" />
+
+            <TextView
+                android:id="@+id/txt_coffee_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="My Coffee"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center">
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_total_evaluation"
+                        android:text="Total:" />
+
+                    <TextView
+                        android:id="@+id/txt_total_evaluation"
+                        android:text="10" />
+
+                    <ImageView android:src="@drawable/ic_menu_gallery" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_taste_evaluation"
+                        android:text="Taste:" />
+
+                    <TextView
+                        android:id="@+id/txt_taste_evaluation"
+                        android:text="10" />
+
+                    <ImageView android:src="@drawable/ic_menu_gallery" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_cost_evaluation"
+                        android:text="Cost:" />
+
+                    <TextView
+                        android:id="@+id/txt_cost_evaluation"
+                        android:text="10" />
+
+                    <ImageView android:src="@drawable/ic_menu_gallery" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_availability_evaluation"
+                        android:text="Availability:" />
+
+                    <TextView
+                        android:id="@+id/txt_availability_evaluation"
+                        android:text="10" />
+
+                    <ImageView android:src="@drawable/ic_menu_gallery" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center">
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_coffee_type"
+                        android:text="Coffee type:" />
+
+                    <TextView
+                        android:id="@+id/txt_coffee_type"
+                        android:text="Mixed" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_store_to_buy_from"
+                        android:text="Available at:" />
+
+                    <TextView
+                        android:id="@+id/txt_store_to_buy_from"
+                        android:text="Amazon" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_price"
+                        android:text="Price:" />
+
+                    <TextView
+                        android:id="@+id/txt_price"
+                        android:text="5.99€" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_quantity"
+                        android:text="Quantity:" />
+
+                    <TextView
+                        android:id="@+id/txt_quantity"
+                        android:text="1000 g" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_strength"
+                        android:text="Strength:" />
+
+                    <TextView
+                        android:id="@+id/txt_strength"
+                        android:text="5" />
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lbl_additional_information"
+                        android:text="Additional information:" />
+
+                    <TextView
+                        android:id="@+id/txt_additional_information"
+                        android:text="Is very good" />
+                </TableRow>
+            </TableLayout>
+
+            <ListView
+                android:id="@+id/list_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    <!--</ScrollView>-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</FrameLayout>
