@@ -17,6 +17,7 @@ import at.tu.graz.coffee.R
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private var coffeeList = mutableListOf<Coffee>()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -27,14 +28,24 @@ class HomeFragment : Fragment() {
                 ViewModelProvider(this).get(HomeViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        var coffeeList = mutableListOf<Coffee>()
-        coffeeList.add(Coffee("Caffe Crema", "9.7", R.drawable.spar_premium_caffe_crema))
-        coffeeList.add(Coffee("Barista Espresso", "8.7", R.drawable.tchibo_barista_espresso))
-        coffeeList.add(Coffee("Black and White", "7.7", R.drawable.tchibo_black_and_white))
+
+        /*val textView: TextView = root.findViewById(R.id.text_home)
+        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
+        })*/
+
+        fillCoffeeliest()
+
 
         val listView:ListView = root.findViewById<ListView>(R.id.home_listview)
         listView.adapter = CostumeAdapter(requireContext(), coffeeList)
         return root
+    }
+
+    fun fillCoffeeliest(){
+        coffeeList.add(Coffee("Caffe Crema", "9.7", R.drawable.spar_premium_caffe_crema))
+        coffeeList.add(Coffee("Barista Espresso", "8.7", R.drawable.tchibo_barista_espresso))
+        coffeeList.add(Coffee("Black and White", "7.7", R.drawable.tchibo_black_and_white))
     }
 
     private class CostumeAdapter(context:Context, coffeeList:List<Coffee>): BaseAdapter() {
