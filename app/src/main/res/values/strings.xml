@@ -13,6 +13,17 @@
     <string name="menu_support">Support</string>
 
     <string name="details">Details</string>
-    <string name="price">%d €</string>
-    <string name="quantity">%d g</string>
+    <string name="price">%.2f €</string>
+    <string name="quantity">%.2f g</string>
+    <string name="availability">Availability:</string>
+    <string name="cost">Cost:</string>
+    <string name="taste">Taste:</string>
+    <string name="total">Total:</string>
+    <string name="coffee_type">Coffee type:</string>
+    <string name="available_at">Available at:</string>
+    <string name="price_lbl">Price:</string>
+    <string name="quantity_lbl">Quantity:</string>
+    <string name="strength">Strength:</string>
+    <string name="additional_information">Additional information:</string>
+    <string name="reviews_btn">Reviews</string>
 </resources>

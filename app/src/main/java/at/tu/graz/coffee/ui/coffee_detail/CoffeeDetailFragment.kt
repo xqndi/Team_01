@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,9 +17,9 @@ class CoffeeDetailFragment : Fragment() {
     private val args: CoffeeDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_details, container, false)
     }
@@ -30,20 +31,17 @@ class CoffeeDetailFragment : Fragment() {
 
         val coffee = viewModel.getCoffee(args.coffeeId)
 
+        val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
+        imgCoffee?.setImageResource(resources.getIdentifier(coffee.imageId,
+                "drawable", activity?.packageName))
+
         val name = view.findViewById<TextView>(R.id.txt_coffee_name)
         name.text = coffee.name
 
-        val totalEvaluation = view.findViewById<TextView>(R.id.txt_total_evaluation)
-        totalEvaluation.text = coffee.evaluationTotal.toString()
-
-        val tasteEvaluation = view.findViewById<TextView>(R.id.txt_taste_evaluation)
-        tasteEvaluation.text = coffee.evaluationTaste.toString()
-
-        val costEvaluation = view.findViewById<TextView>(R.id.txt_cost_evaluation)
-        costEvaluation.text = coffee.evaluationCost.toString()
-
-        val availabilityEvaluation = view.findViewById<TextView>(R.id.txt_availability_evaluation)
-        availabilityEvaluation.text = coffee.evaluationAvailability.toString()
+        setEvaluation(coffee.evaluationTotal, "total")
+        setEvaluation(coffee.evaluationTaste, "taste")
+        setEvaluation(coffee.evaluationCost, "cost")
+        setEvaluation(coffee.evaluationAvailability, "availability")
 
         val coffeeType = view.findViewById<TextView>(R.id.txt_coffee_type)
         coffeeType.text = coffee.coffeeType.text
@@ -62,5 +60,24 @@ class CoffeeDetailFragment : Fragment() {
 
         val additionalInformation = view.findViewById<TextView>(R.id.txt_additional_information)
         additionalInformation.text = coffee.additionalInformation
+    }
+
+    private fun setEvaluation(value: Double, type: String) {
+        for(i in 1..value.toInt()) {
+            val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
+                    "img_" + type + "_star_$i", "id", activity?.packageName))
+
+            imgStar?.setImageResource(R.drawable.star_full)
+        }
+
+        val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
+                "img_" + type + "_star_${value.toInt() + 1}", "id", activity?.packageName))
+
+        val decimal = value - value.toInt()
+        if(decimal in 0.2..0.8) {
+            imgStar?.setImageResource(R.drawable.star_half)
+        } else if(decimal >= 0.8){
+            imgStar?.setImageResource(R.drawable.star_full)
+        }
     }
 }

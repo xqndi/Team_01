@@ -10,9 +10,9 @@ class CoffeeTest : TestCase() {
         CoffeeType.MIXED,
         1.0,
         3,
-        "Very good")
+        "Very good",
+        imageId = "rocket_coffee")
 
-    //TODO replace String with Review
     fun testAddReview() {
         val firstReview = Review(5,5,2, "First Review")
         val secondReview = Review(6,6,3, "Second Review")
@@ -60,14 +60,11 @@ class CoffeeTest : TestCase() {
         assertEquals("Very good", coffee.additionalInformation)
     }
 
-    //TODO replace with calculated Evaluation
     fun testGetEvaluation() {
         coffee.reviews.clear()
-
         assertEquals(0.0, coffee.evaluationTotal)
     }
 
-    //TODO replace String with Review
     fun testGetReviews() {
         coffee.reviews.clear()
 
@@ -79,5 +76,9 @@ class CoffeeTest : TestCase() {
 
         assertEquals(1, coffee.reviews.size)
         assertEquals(review, coffee.reviews[0])
+    }
+
+    fun testGetImageId() {
+        assertEquals("rocket_coffee", coffee.imageId)
     }
 }
