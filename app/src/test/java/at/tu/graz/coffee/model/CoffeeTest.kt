@@ -10,7 +10,8 @@ class CoffeeTest : TestCase() {
         CoffeeType.MIXED,
         1.0,
         3,
-        "Very good")
+        "Very good",
+         1)
 
     //TODO replace String with Review
     fun testAddReview() {

@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import at.tu.graz.coffee.Coffee
+import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeType
 import at.tu.graz.coffee.R
 
 class HomeFragment : Fragment() {
@@ -29,11 +27,8 @@ class HomeFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        /*val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
 
+        //create dummy data
         fillCoffeeliest()
 
 
@@ -42,10 +37,38 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    fun fillCoffeeliest(){
-        coffeeList.add(Coffee("Caffe Crema", "9.7", R.drawable.spar_premium_caffe_crema))
-        coffeeList.add(Coffee("Barista Espresso", "8.7", R.drawable.tchibo_barista_espresso))
-        coffeeList.add(Coffee("Black and White", "7.7", R.drawable.tchibo_black_and_white))
+    private fun fillCoffeeliest(){
+
+        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.spar_premium_caffe_crema ))
+        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_barista_espresso ))
+        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_black_and_white ))
+        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.spar_premium_caffe_crema ))
+        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_barista_espresso ))
+        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_black_and_white ))
+        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.spar_premium_caffe_crema ))
+        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_barista_espresso ))
+        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_black_and_white ))
+        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
+                CoffeeType.NONE, 1.00,1," ",
+                R.drawable.tchibo_black_and_white ))
     }
 
     private class CostumeAdapter(context:Context, coffeeList:List<Coffee>): BaseAdapter() {
@@ -56,7 +79,7 @@ class HomeFragment : Fragment() {
             this.mcoffeeList = coffeeList
         }
         override fun getCount(): Int {
-            return 3
+            return 10
         }
 
         override fun getItem(p0: Int): Any {
@@ -73,9 +96,12 @@ class HomeFragment : Fragment() {
             val nameTextView = homeRow.findViewById<TextView>(R.id.home_textView_name)
             nameTextView.text = mcoffeeList[position].name
             val ratingTextView = homeRow.findViewById<TextView>(R.id.home_textView_rating)
-            ratingTextView.text = mcoffeeList[position].rating
+            //TODO: rating is not implemented yet, so we use price to show the stars in the rating
+            ratingTextView.text = mcoffeeList[position].price.toString()
             val imageView = homeRow.findViewById<ImageView>(R.id.home_imageView)
-            imageView.setImageDrawable(mContext.resources.getDrawable(mcoffeeList[position].image))
+            imageView.setImageDrawable(mContext.resources.getDrawable(mcoffeeList[position].picture))
+            val ratingBar = homeRow.findViewById<RatingBar>(R.id.home_ratingBar)
+            ratingBar.rating = mcoffeeList[position].price.toFloat()
             return homeRow
         }
 
