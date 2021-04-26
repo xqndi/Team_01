@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeType
 import at.tu.graz.coffee.R
+import java.lang.NullPointerException
 
 class HomeFragment : Fragment() {
 
@@ -91,19 +92,32 @@ class HomeFragment : Fragment() {
         }
 
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
-            val layoutInflater = LayoutInflater.from(mContext)
-            val homeRow = layoutInflater.inflate(R.layout.home_row, viewGroup, false)
-            val nameTextView = homeRow.findViewById<TextView>(R.id.home_textView_name)
-            nameTextView.text = mcoffeeList[position].name
-            val ratingTextView = homeRow.findViewById<TextView>(R.id.home_textView_rating)
+            val homeRow:View
+            if (convertView == null) {
+                val layoutInflater = LayoutInflater.from(mContext)
+                homeRow = layoutInflater.inflate(R.layout.home_row, viewGroup, false)
+                val nameTextView = homeRow.findViewById<TextView>(R.id.home_textView_name)
+                val ratingTextView = homeRow.findViewById<TextView>(R.id.home_textView_rating)
+                val imageView = homeRow.findViewById<ImageView>(R.id.home_imageView)
+                val ratingBar = homeRow.findViewById<RatingBar>(R.id.home_ratingBar)
+                val viewholder = ViewHolderPattern(nameTextView, ratingTextView, imageView, ratingBar)
+                homeRow.tag = viewholder
+            }
+            else {
+                homeRow = convertView
+            }
+            val viewholder = homeRow.tag as ViewHolderPattern
+            viewholder.nameTextView.text = mcoffeeList[position].name
             //TODO: rating is not implemented yet, so we use price to show the stars in the rating
-            ratingTextView.text = mcoffeeList[position].price.toString()
-            val imageView = homeRow.findViewById<ImageView>(R.id.home_imageView)
-            imageView.setImageDrawable(mContext.resources.getDrawable(mcoffeeList[position].picture))
-            val ratingBar = homeRow.findViewById<RatingBar>(R.id.home_ratingBar)
-            ratingBar.rating = mcoffeeList[position].price.toFloat()
+            viewholder.ratingTextView.text = mcoffeeList[position].price.toString()
+            viewholder.imageView.setImageDrawable(mContext.resources.getDrawable(mcoffeeList[position].picture))
+            viewholder.ratingBar.rating = mcoffeeList[position].price.toFloat()
             return homeRow
         }
+    }
+
+    private class ViewHolderPattern (val nameTextView : TextView, val ratingTextView: TextView,
+                                        val imageView : ImageView, val ratingBar : RatingBar) {
 
     }
 
