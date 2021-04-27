@@ -23,6 +23,7 @@ Laura Pessl, [@laurapessl](https://github.com/laurapessl)<br/>
 John Tusha, [@john-t-1421](https://github.com/john-t-1421)<br/>
 
 ## Implemented features
+Every Implemented feature can be looked up here: [@issuses](https://github.com/sw21-tug/Team_01/issues?q=is%3Aissue+is%3Aclosed)
 
 | Ticket Nr. | developer 1 | developer 2 |
 |---|---|---|
@@ -32,5 +33,4 @@ John Tusha, [@john-t-1421](https://github.com/john-t-1421)<br/>
 | COFFEE-005 Review Class  |[@john-t-1421](https://github.com/john-t-1421)|[@onephoenix](https://github.com/onephoenix)|
 | COFFEE-011 Home Button  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
 | COFFEE-003 Menu Button  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
-|   |   |   |
 |   |   |   |
