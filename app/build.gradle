@@ -50,7 +50,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test:rules:1.3.0-beta01'
-
+    apply plugin: 'kotlin-android-extensions'
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
     // Espresso
 // Core library
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

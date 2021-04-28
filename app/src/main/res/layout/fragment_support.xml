@@ -4,18 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="450dp"
+            android:layout_marginEnd="200dp" android:id="@+id/radio_group">
+        <RadioButton
+                android:text="@string/owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/rdbtn_Owner"
+                android:checked="true"/>
+        <RadioButton
+                android:text="@string/menu_support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/rdbtn_Support"/>
+    </RadioGroup>
     <TextView
-        android:id="@+id/text_support"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="100dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"/>
+    <EditText
+            android:layout_width="302dp"
+            android:layout_height="162dp"
+            android:inputType="textMultiLine"
+            android:gravity="start|top"
+            android:ems="10"
+            android:id="@+id/txt_supportMsg"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="@string/message"
+            android:layout_width="114dp"
+            android:layout_height="28dp" android:id="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.209" app:layout_constraintVertical_bias="0.344"/>
+    <Button
+            android:text="@string/sendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btn_sendEmail"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.193" app:layout_constraintVertical_bias="0.787"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

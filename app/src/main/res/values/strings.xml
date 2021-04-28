@@ -11,4 +11,8 @@
     <string name="menu_addCoffee">Add Coffee</string>
     <string name="menu_search">Search</string>
     <string name="menu_support">Support</string>
+    <string name="owner">Owner</string>
+    <string name="question">Whom do you want to contact?</string>
+    <string name="message">Your Message:</string>
+    <string name="sendEmail">Send Message</string>
 </resources>
