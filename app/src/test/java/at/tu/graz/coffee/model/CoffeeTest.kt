@@ -4,24 +4,33 @@ import junit.framework.TestCase
 
 class CoffeeTest : TestCase() {
 
-    private val coffee: Coffee = Coffee("My coffee",
+    private val coffee: Coffee = Coffee(1,
+        "My coffee",
         5.99,
         "Amazon",
         CoffeeType.MIXED,
         1.0,
         3,
         "Very good",
-         1)
+        "rocket_coffee")
 
-    //TODO replace String with Review
     fun testAddReview() {
-        coffee.addReview("First Review")
-        coffee.addReview("Second Review")
-        coffee.addReview("Third Review")
+        val firstReview = Review(5, 5, 2, "First Review")
+        val secondReview = Review(6, 6, 3, "Second Review")
+        val thirdReview = Review(7, 7, 4, "Third Review")
 
-        assertEquals("First Review", coffee.reviews[coffee.reviews.size - 3])
-        assertEquals("Second Review", coffee.reviews[coffee.reviews.size - 2])
-        assertEquals("Third Review", coffee.reviews[coffee.reviews.size - 1])
+        coffee.addReview(firstReview)
+        coffee.addReview(secondReview)
+        coffee.addReview(thirdReview)
+
+        assertEquals(firstReview, coffee.reviews[coffee.reviews.size - 3])
+        assertEquals(secondReview, coffee.reviews[coffee.reviews.size - 2])
+        assertEquals(thirdReview, coffee.reviews[coffee.reviews.size - 1])
+
+        assertEquals(6.0, coffee.evaluationTaste, 0.1)
+        assertEquals(6.0, coffee.evaluationCost, 0.1)
+        assertEquals(3.0, coffee.evaluationAvailability, 0.1)
+        assertEquals(5.0, coffee.evaluationTotal, 0.1)
     }
 
     fun testTestGetName() {
@@ -52,20 +61,29 @@ class CoffeeTest : TestCase() {
         assertEquals("Very good", coffee.additionalInformation)
     }
 
-    //TODO replace with calculated Evaluation
     fun testGetEvaluation() {
-        assertEquals(0, coffee.evaluation)
+        coffee.reviews.clear()
+        assertEquals(0.0, coffee.evaluationTotal)
     }
 
-    //TODO replace String with Review
     fun testGetReviews() {
         coffee.reviews.clear()
 
         assertEquals(0, coffee.reviews.size)
 
-        coffee.addReview("First Review")
+        val review = Review(5, 5, 5, "Review")
+
+        coffee.addReview(review)
 
         assertEquals(1, coffee.reviews.size)
-        assertEquals("First Review", coffee.reviews[0])
+        assertEquals(review, coffee.reviews[0])
+    }
+
+    fun testGetImage() {
+        assertEquals("rocket_coffee", coffee.image)
+    }
+
+    fun testGetId() {
+        assertEquals(1, coffee.id)
     }
 }
