@@ -1,6 +1,7 @@
 package at.tu.graz.coffee.model
 
-data class Coffee(val name: String,
+data class Coffee(val id: Int,
+                  val name: String,
                   val price: Double,
                   val storeToBuyFrom: String,
                   val coffeeType: CoffeeType,

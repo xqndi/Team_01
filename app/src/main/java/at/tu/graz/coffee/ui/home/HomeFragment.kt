@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeType
 import at.tu.graz.coffee.R
+import at.tu.graz.coffee.model.CoffeeData
 import java.lang.NullPointerException
 
 class HomeFragment : Fragment() {
@@ -19,55 +20,20 @@ class HomeFragment : Fragment() {
     private var coffeeList = mutableListOf<Coffee>()
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        //create dummy data
-        fillCoffeeliest()
+        coffeeList = CoffeeData.getCoffees().toMutableList()
 
-        val listView:ListView = root.findViewById<ListView>(R.id.home_listview)
+        val listView:ListView = root.findViewById(R.id.home_listview)
         listView.adapter = CostumeAdapter(requireContext(), coffeeList)
         return root
-    }
-
-    private fun fillCoffeeliest(){
-
-        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "spar_premium_caffe_crema" ))
-        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_barista_espresso" ))
-        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_black_and_white" ))
-        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "spar_premium_caffe_crema"))
-        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_barista_espresso" ))
-        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_black_and_white" ))
-        coffeeList.add(Coffee("Caffe Crema", 9.00, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "spar_premium_caffe_crema" ))
-        coffeeList.add(Coffee("Barista Espresso", 3.50, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_barista_espresso" ))
-        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_black_and_white" ))
-        coffeeList.add(Coffee("Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00,1," ",
-                "tchibo_black_and_white" ))
     }
 
     private class CostumeAdapter(context:Context, coffeeList:List<Coffee>): BaseAdapter() {
@@ -110,7 +76,7 @@ class HomeFragment : Fragment() {
             viewholder.ratingTextView.text = mcoffeeList[position].price.toString()
 
             viewholder.imageView.setImageResource(mContext.resources.getIdentifier(mcoffeeList[position].image,
-                    "drawable", mContext.packageName))
+                "drawable", mContext.packageName))
 
             viewholder.ratingBar.rating = mcoffeeList[position].price.toFloat()
             return homeRow
@@ -118,11 +84,10 @@ class HomeFragment : Fragment() {
     }
 
     private class ViewHolderPattern (val nameTextView : TextView, val ratingTextView: TextView,
-                                        val imageView : ImageView, val ratingBar : RatingBar) {
+                                     val imageView : ImageView, val ratingBar : RatingBar) {
 
     }
 
 
 
 }
-

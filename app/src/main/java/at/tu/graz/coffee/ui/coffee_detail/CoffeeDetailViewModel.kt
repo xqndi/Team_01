@@ -9,9 +9,9 @@ class CoffeeDetailViewModel : ViewModel() {
 
     fun getCoffee(id: Int): Coffee {
         //TODO select Coffee with the given id from the local data
-        val coffee = Coffee("Test Coffee", 5.99, "Amazon",
-                CoffeeType.ARABICA, 1000.0, 3,
-                "Very good in the Morning", image = "rocket_coffee")
+        val coffee = Coffee(1,"Test Coffee", 5.99, "Amazon",
+            CoffeeType.ARABICA, 1000.0, 3,
+            "Very good in the Morning", image = "rocket_coffee")
         coffee.addReview(Review(5,7,9))
         coffee.addReview(Review(4,3,9))
         return coffee

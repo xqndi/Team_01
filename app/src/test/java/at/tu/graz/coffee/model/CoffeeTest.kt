@@ -4,19 +4,20 @@ import junit.framework.TestCase
 
 class CoffeeTest : TestCase() {
 
-    private val coffee: Coffee = Coffee("My coffee",
+    private val coffee: Coffee = Coffee(1,
+        "My coffee",
         5.99,
         "Amazon",
         CoffeeType.MIXED,
         1.0,
         3,
         "Very good",
-         "rocket_coffee")
+        "rocket_coffee")
 
     fun testAddReview() {
-        val firstReview = Review(5,5,2, "First Review")
-        val secondReview = Review(6,6,3, "Second Review")
-        val thirdReview = Review(7,7,4, "Third Review")
+        val firstReview = Review(5, 5, 2, "First Review")
+        val secondReview = Review(6, 6, 3, "Second Review")
+        val thirdReview = Review(7, 7, 4, "Third Review")
 
         coffee.addReview(firstReview)
         coffee.addReview(secondReview)
@@ -70,7 +71,7 @@ class CoffeeTest : TestCase() {
 
         assertEquals(0, coffee.reviews.size)
 
-        val review = Review(5,5,5, "Review")
+        val review = Review(5, 5, 5, "Review")
 
         coffee.addReview(review)
 
@@ -78,7 +79,11 @@ class CoffeeTest : TestCase() {
         assertEquals(review, coffee.reviews[0])
     }
 
-    fun testGetImageId() {
+    fun testGetImage() {
         assertEquals("rocket_coffee", coffee.image)
+    }
+
+    fun testGetId() {
+        assertEquals(1, coffee.id)
     }
 }
