@@ -32,7 +32,7 @@ class CoffeeDetailFragment : Fragment() {
         val coffee = viewModel.getCoffee(args.coffeeId)
 
         val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
-        imgCoffee?.setImageResource(resources.getIdentifier(coffee.imageId,
+        imgCoffee?.setImageResource(resources.getIdentifier(coffee.image,
                 "drawable", activity?.packageName))
 
         val name = view.findViewById<TextView>(R.id.txt_coffee_name)

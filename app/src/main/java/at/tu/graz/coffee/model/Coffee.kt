@@ -7,7 +7,7 @@ data class Coffee(val name: String,
                   val quantity: Double = -1.0,
                   val strength: Int = -1,
                   val additionalInformation: String = "",
-                  val imageId: String = "ic_menu_gallery") {
+                  val image: String) {
 
     var evaluationTotal: Double = 0.0
     var evaluationTaste: Double = 0.0

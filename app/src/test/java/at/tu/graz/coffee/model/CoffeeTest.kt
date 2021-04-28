@@ -11,7 +11,7 @@ class CoffeeTest : TestCase() {
         1.0,
         3,
         "Very good",
-        imageId = "rocket_coffee")
+         "rocket_coffee")
 
     fun testAddReview() {
         val firstReview = Review(5,5,2, "First Review")
@@ -79,6 +79,6 @@ class CoffeeTest : TestCase() {
     }
 
     fun testGetImageId() {
-        assertEquals("rocket_coffee", coffee.imageId)
+        assertEquals("rocket_coffee", coffee.image)
     }
 }
