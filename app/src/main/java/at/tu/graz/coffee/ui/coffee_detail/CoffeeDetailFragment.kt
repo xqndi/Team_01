@@ -17,9 +17,9 @@ class CoffeeDetailFragment : Fragment() {
     private val args: CoffeeDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_details, container, false)
     }
@@ -29,11 +29,11 @@ class CoffeeDetailFragment : Fragment() {
 
         val res: Resources = resources
 
-        val coffee = viewModel.getCoffee(args.coffeeId)
+        val coffee = viewModel.getCoffee(args.coffeeId) ?: return
 
         val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
         imgCoffee?.setImageResource(resources.getIdentifier(coffee.image,
-                "drawable", activity?.packageName))
+            "drawable", activity?.packageName))
 
         val name = view.findViewById<TextView>(R.id.txt_coffee_name)
         name.text = coffee.name
@@ -65,13 +65,13 @@ class CoffeeDetailFragment : Fragment() {
     private fun setEvaluation(value: Double, type: String) {
         for(i in 1..value.toInt()) {
             val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
-                    "img_" + type + "_star_$i", "id", activity?.packageName))
+                "img_" + type + "_star_$i", "id", activity?.packageName))
 
             imgStar?.setImageResource(R.drawable.star_full)
         }
 
         val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
-                "img_" + type + "_star_${value.toInt() + 1}", "id", activity?.packageName))
+            "img_" + type + "_star_${value.toInt() + 1}", "id", activity?.packageName))
 
         val decimal = value - value.toInt()
         if(decimal in 0.2..0.8) {
