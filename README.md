@@ -33,4 +33,6 @@ Every Implemented feature can be looked up here: [@issuses](https://github.com/s
 | COFFEE-005 Review Class  |[@john-t-1421](https://github.com/john-t-1421)|[@onephoenix](https://github.com/onephoenix)|
 | COFFEE-011 Home Button  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
 | COFFEE-003 Menu Button  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
-|   |   |   |
+| COFFEE-009 Search Page  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
+| COFFEE-008 Add Coffee Page |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
+| COFFEE-007 Menu  |[@MarioPilz99](https://github.com/MarioPilz99)|[@xqndi](https://github.com/xqndi)|
