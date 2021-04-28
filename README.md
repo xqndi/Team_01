@@ -23,7 +23,7 @@ Laura Pessl, [@laurapessl](https://github.com/laurapessl)<br/>
 John Tusha, [@john-t-1421](https://github.com/john-t-1421)<br/>
 
 ## Implemented features
-Every Implemented feature can be looked up here: [@issuses](https://github.com/sw21-tug/Team_01/issues?q=is%3Aissue+is%3Aclosed)
+Every Implemented feature can be looked up here: [Issuses](https://github.com/sw21-tug/Team_01/issues?q=is%3Aissue+is%3Aclosed)
 
 | Ticket Nr. | developer 1 | developer 2 |
 |---|---|---|
