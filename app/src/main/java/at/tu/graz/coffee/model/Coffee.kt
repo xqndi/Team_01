@@ -6,7 +6,8 @@ data class Coffee(val name: String,
                   val coffeeType: CoffeeType,
                   val quantity: Double = -1.0,
                   val strength: Int = -1,
-                  val additionalInformation: String = "") {
+                  val additionalInformation: String = "",
+                  val picture: Int) {
 
     var evaluation: Int = 0
     val reviews: MutableList<String> = mutableListOf() //TODO Replace String with Review Class
