@@ -18,7 +18,7 @@ Florian Haid, [@FlorianHaid](https://github.com/FlorianHaid)<br/>
 Alex Gosch, [@goschale](https://github.com/goschale)<br/>
 Alexander Freissnig, [@xqndi](https://github.com/xqndi)<br/>
 Mario Pilz, [@MarioPilz99](https://github.com/MarioPilz99)<br/>
-Tanja, [@onephoenix](https://github.com/onephoenix)<br/>
+Tanja Boric, [@onephoenix](https://github.com/onephoenix)<br/>
 Laura Pessl, [@laurapessl](https://github.com/laurapessl)<br/>
 John Tusha, [@john-t-1421](https://github.com/john-t-1421)<br/>
 
