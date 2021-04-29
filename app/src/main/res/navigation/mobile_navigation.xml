@@ -9,7 +9,12 @@
         android:id="@+id/nav_home"
         android:name="at.tu.graz.coffee.ui.home.HomeFragment"
         android:label="Smart Coffee"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_open_details"
+            app:destination="@id/nav_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_addCoffee"
@@ -28,5 +33,17 @@
         android:name="at.tu.graz.coffee.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_support"
         tools:layout="@layout/fragment_support" />
+
+    <fragment
+        android:id="@+id/nav_details"
+        android:name="at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details">
+
+        <argument
+            android:name="coffeeId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
 
 </navigation>

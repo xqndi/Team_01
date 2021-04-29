@@ -1,13 +1,14 @@
 package at.tu.graz.coffee.javaHelper;
 
 import android.os.StrictMode;
-import android.widget.Toast;
+
 
 import java.util.Properties;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 
 public class EmailSender {
     private String username = "johntusha04@gmail.com";
