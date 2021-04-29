@@ -38,9 +38,9 @@ public class EmailSender {
             message.setText(msg);
             Transport.send(message);
         }
-        catch (MessagingException ee)
+        catch (MessagingException e)
         {
-            ee.printStackTrace();
+            e.printStackTrace();
         }
 
     }
