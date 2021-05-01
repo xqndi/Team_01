@@ -1,24 +1,36 @@
 package at.tu.graz.coffee.javaHelper;
 
+import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 
 
-import java.util.Properties;
-
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+import javax.mail.Session;
 
 
-public class EmailSender {
-    private String username = "johntusha04@gmail.com";
-    private String password = "Teutonia1863!jg";
+
+
+public class EmailSender extends AsyncTask<String,String, Void> {
+    private String username = "agilesoftwaredev2021@gmail.com";
+    private String password = "Bismarck0104";
     Properties props = new Properties();
 
-    public EmailSender (String msg, String to)
+
+    @Override
+    protected Void doInBackground(String... strings) {
+        send(strings[0], strings[1]);
+        return null;
+    }
+
+    public void send(String to, String text)
     {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -35,7 +47,7 @@ public class EmailSender {
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             message.setSubject("Support-Request");
-            message.setText(msg);
+            message.setText(text);
             Transport.send(message);
         }
         catch (MessagingException e)
@@ -44,4 +56,6 @@ public class EmailSender {
         }
 
     }
+
+
 }

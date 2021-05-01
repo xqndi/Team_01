@@ -16,7 +16,7 @@
     <string name="question">Whom do you want to contact?</string>
     <string name="message">Your Message:</string>
     <string name="sendEmail">Send Message</string>
-
+    <string name="emailConfirm">Email sent successfully!</string>
 
     <string name="details">Details</string>
     <string name="price">%.2f €</string>
