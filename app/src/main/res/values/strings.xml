@@ -35,5 +35,6 @@
     <string name="menu_filter">Filter</string>
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
-
+    <string name="settings">Settings</string>
+>>>>>>> b8dad93 (COFFEE-019-Russian-Support added Navigation, changed Radio Button)
 </resources>
