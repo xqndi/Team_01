@@ -1,10 +1,10 @@
-package at.tu.graz.coffee.ui.slideshow
+package at.tu.graz.coffee.ui.support
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class SupportViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
 
