@@ -5,44 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
-        android:id="@+id/language_first_radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/language_first_text_view"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="First Language"
-        app:layout_constraintStart_toEndOf="@+id/language_first_radio"
-        tools:layout_editor_absoluteY="55dp"
-        tools:ignore="MissingConstraints" />
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
-    <RadioButton
-        android:id="@+id/language_second_radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/language_first_radio"
-        app:layout_constraintVertical_bias="0.006" />
 
-    <TextView
-        android:id="@+id/language_second_text_view"
-        android:layout_width="117dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="28dp"
-        android:text="Second Language"
-        app:layout_constraintStart_toEndOf="@+id/language_second_radio"
-        tools:layout_editor_absoluteY="107dp"
-        tools:ignore="MissingConstraints" />
+        <RadioButton
+            android:id="@+id/language_first_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="First language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <RadioButton
+            android:id="@+id/language_second_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="Second language"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language_first_radio"
+            app:layout_constraintVertical_bias="0.006" />
+
+    </RadioGroup>
+
+
+
+
+
+
 
     <Button
         android:id="@+id/settings_apply_button"
