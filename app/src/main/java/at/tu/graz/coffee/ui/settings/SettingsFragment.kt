@@ -4,10 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.ui.home.SettingsViewModel
+
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.TextView
+import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
 class SettingsFragment : Fragment() {
 
@@ -30,6 +44,11 @@ class SettingsFragment : Fragment() {
             // Perform your logic
         }
     }*/
+
+    public fun applyDetermineLanguage() {
+
+        return
+    }
 
 
     override fun onCreateView(

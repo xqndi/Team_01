@@ -1,22 +1,36 @@
 package at.tu.graz.coffee
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-import com.google.android.material.navigation.NavigationView
+import android.view.View
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import com.google.android.material.navigation.NavigationView
+import java.util.*
 
+
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    lateinit var localeToBeUsed: Locale
+    private var currentLanguage: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,4 +66,34 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         navController.navigate(R.id.nav_settings)
     }
+
+    fun onClickApplyButton(view: View) {
+        val b1 : RadioButton = findViewById<RadioButton>(R.id.language_first_radio)
+        val b2 : RadioButton = findViewById<RadioButton>(R.id.language_second_radio)
+        var languageSelector : String = "en"
+        if (b1.isChecked)
+        {
+            changeLanguage(languageSelector)
+        }
+        if (b2.isChecked)
+        {
+            languageSelector = "ru"
+            changeLanguage(languageSelector)
+        }
+    }
+    private fun changeLanguage(languageToSet: String) {
+
+        val usedResource = resources
+        val configurationToSet = usedResource.configuration
+        val displayMetricsToSet = usedResource.displayMetrics
+
+        localeToBeUsed = Locale(languageToSet)
+
+        configurationToSet.locale = localeToBeUsed
+        usedResource.updateConfiguration(configurationToSet, displayMetricsToSet)
+        val currentUpdater = Intent(this, MainActivity::class.java)
+        currentUpdater.putExtra(currentLanguage, languageToSet)
+        startActivity(currentUpdater)
+    }
 }
+
