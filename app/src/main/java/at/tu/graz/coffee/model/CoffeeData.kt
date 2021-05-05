@@ -15,25 +15,25 @@ object CoffeeData {
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema", reviews as MutableList<Review>
         ),
-        Coffee(2,"Barista Espresso", 3.50, "Supermarket",
+        Coffee(2,"Barista Espresso", 3.50, "Amazon",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso"),
-        Coffee(3,"Black and White", 5.0, "Supermarket",
+        Coffee(3,"Black and White", 5.0, "Billa",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),
-        Coffee(4,"Caffe Crema", 9.00, "Supermarket",
+        Coffee(4,"Caffe Crema", 9.00, "Spar",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema",reviews as MutableList<Review> ),
         Coffee(5,"Barista Espresso", 3.50, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso",reviews as MutableList<Review> ),
-        Coffee(6,"Black and White", 5.0, "Supermarket",
+        Coffee(6,"Black and White", 5.0, "Amazon",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),
-        Coffee(7,"Caffe Crema", 9.00, "Supermarket",
+        Coffee(7,"Caffe Crema", 9.00, "Billa",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema" ,reviews as MutableList<Review>),
-        Coffee(8,"Barista Espresso", 3.50, "Supermarket",
+        Coffee(8,"Barista Espresso", 3.50, "Spar",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso",reviews as MutableList<Review> ),
         Coffee(9,"Black and White", 5.0, "Supermarket",
@@ -56,5 +56,34 @@ object CoffeeData {
             return null;
         }
         return coffeeList[0]
+    }
+
+    fun getStoresOfAllCoffees() : ArrayList<String> {
+        val coffeeStores: ArrayList<String> = ArrayList()
+
+        coffees.forEach{
+            if(it.storeToBuyFrom !in coffeeStores) {
+                coffeeStores.add(it.storeToBuyFrom)
+            }
+        }
+        return coffeeStores
+    }
+
+    fun filterCoffee(rangeTotal: List<Float>, rangeTaste: List<Float>, rangeCost: List<Float>,
+                     rangeAvailability: List<Float>, selectedStore: String) : List<Coffee> {
+        val filteredCoffees: MutableList<Coffee> = mutableListOf()
+
+        coffees.forEach{
+            if(it.evaluationTotal >= rangeTotal[0] && it.evaluationTotal <= rangeTotal[1] &&
+                it.evaluationTaste >= rangeTaste[0] && it.evaluationTaste <= rangeTaste[1] &&
+                it.evaluationCost >= rangeCost[0] && it.evaluationCost <= rangeCost[1] &&
+                it.evaluationAvailability >= rangeAvailability[0] &&
+                it.evaluationAvailability <= rangeAvailability[1] &&
+                (it.storeToBuyFrom == selectedStore || selectedStore == "")) {
+
+                filteredCoffees.add(it)
+            }
+        }
+        return filteredCoffees
     }
 }
