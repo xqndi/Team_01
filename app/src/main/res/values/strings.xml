@@ -35,5 +35,12 @@
     <string name="menu_filter">Filter</string>
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
+    <string name="contact">CONTACT</string>
+    <string name="Product_Owner">Product Owner</string>
+    <string name="tel_nr">Telephon</string>
+    <string name="email">E-Mail Address</string>
+    <string name="po_name">Burim Vrella</string>
+
+
 
 </resources>
