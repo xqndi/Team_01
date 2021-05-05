@@ -12,6 +12,12 @@
     <string name="menu_search">Поиск</string>
     <string name="menu_support">Служба поддержки</string>
 
+    <string name="owner">Владелец</string>
+    <string name="question">С кем вы хотите связаться?</string>
+    <string name="message">Ваше сообщение:</string>
+    <string name="sendEmail">Отправить сообщение</string>
+    <string name="emailConfirm">письмо успешно отправлено</string>
+
     <string name="details">Подробности</string>
     <string name="price">%.2f €</string>
     <string name="quantity">%.2f g</string>
@@ -26,6 +32,11 @@
     <string name="strength">Сила:</string>
     <string name="additional_information">Дополнительная информация:</string>
     <string name="reviews_btn">Отзывы</string>
+
+    <string name="menu_filter">Фильтр</string>
+    <string name="filter_btn">Фильтр</string>
+    <string name="all_shops">Все магазины</string>
+
     <string name="settings">Настройки</string>
 
     <string name="FirstLanguage">английский</string>

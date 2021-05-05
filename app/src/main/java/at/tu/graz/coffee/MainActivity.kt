@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             changeLanguage(languageSelector)
         }
     }
-    private fun changeLanguage(languageToSet: String) {
+    public fun changeLanguage(languageToSet: String) {
 
         val usedResource = resources
         val configurationToSet = usedResource.configuration
