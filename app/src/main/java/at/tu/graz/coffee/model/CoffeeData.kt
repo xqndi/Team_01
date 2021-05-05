@@ -17,7 +17,7 @@ object CoffeeData {
         ),
         Coffee(2,"Barista Espresso", 3.50, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
-            "tchibo_barista_espresso",reviews as MutableList<Review> ),
+            "tchibo_barista_espresso"),
         Coffee(3,"Black and White", 5.0, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),

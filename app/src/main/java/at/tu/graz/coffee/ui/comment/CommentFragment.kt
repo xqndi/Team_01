@@ -52,11 +52,10 @@ class CommentFragment : Fragment() {
             val newReview = Review(10, 10, 10, text.text.toString())
             coffee.reviews = (coffee.reviews.toMutableList() + newReview) as MutableList<Review>
 
-            for (c in coffee.reviews)
-            {
-                println(c.comment)
-            }
-            Toast.makeText(activity, "Submit clicked ${text.text}", Toast.LENGTH_LONG).show()
+            listView.adapter = CommentAdapter(requireContext(), coffee.reviews)
+            text.text.clear()
+
+            Toast.makeText(activity, "Comment added", Toast.LENGTH_SHORT).show()
         }
     }
 }
