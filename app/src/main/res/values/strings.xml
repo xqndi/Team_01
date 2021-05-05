@@ -36,12 +36,10 @@
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
     <string name="settings">Settings</string>
-<<<<<<< HEAD
->>>>>>> b8dad93 (COFFEE-019-Russian-Support added Navigation, changed Radio Button)
-=======
+
 
     <string name="FirstLanguage">English</string>
     <string name="SecondLanguage">Russian</string>
     <string name="LanguageApplyButton">Apply</string>
->>>>>>> 9991ea1 (COFFEE-019 add russian language support [GA,FA])
+
 </resources>
