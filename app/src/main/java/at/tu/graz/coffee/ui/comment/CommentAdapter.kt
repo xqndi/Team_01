@@ -15,9 +15,9 @@ import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.Review
 import org.w3c.dom.Text
 
-class CommentAdapter(context: Context, reviewList:List<Review>): BaseAdapter() {
+class CommentAdapter(context: Context, reviewList:MutableList<Review>): BaseAdapter() {
     private val mContext: Context = context
-    private val mReviewList: List<Review> = reviewList
+    private val mReviewList: MutableList<Review> = reviewList
 
     override fun getCount(): Int {
         return mReviewList.size
@@ -29,6 +29,10 @@ class CommentAdapter(context: Context, reviewList:List<Review>): BaseAdapter() {
 
     override fun getItemId(position: Int): Long {
         return position.toLong()
+    }
+
+    fun getData(): MutableList<Review> {
+        return mReviewList
     }
 
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
