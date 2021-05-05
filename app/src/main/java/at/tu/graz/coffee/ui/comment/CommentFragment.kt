@@ -65,6 +65,8 @@ class CommentFragment : Fragment() {
             val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString())
             coffee.reviews = (coffee.reviews.toMutableList() + newReview) as MutableList<Review>
 
+            coffee.calculateNewEvaluation()
+
             listView.adapter = CommentAdapter(requireContext(), coffee.reviews)
             text.text.clear()
             costSlider.setValues(0.0F,0.0F)
