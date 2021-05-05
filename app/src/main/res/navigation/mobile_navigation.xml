@@ -45,5 +45,9 @@
             app:argType="integer"
             android:defaultValue="-1"/>
     </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="at.tu.graz.coffee.ui.comment.CommentFragment"
+        android:label="CommentFragment" />
 
 </navigation>
