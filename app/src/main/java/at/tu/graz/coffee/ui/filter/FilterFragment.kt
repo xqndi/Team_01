@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.CoffeeData
 import com.google.android.material.slider.RangeSlider
@@ -56,6 +58,7 @@ class FilterFragment : Fragment() {
             val rangeTaste = sliderTaste.values
             val rangeCost = sliderCost.values
             val rangeAvailability = sliderAvailability.values
+            val searchText = view.findViewById<EditText>(R.id.input_field).text.toString()
 
             var selectedStore = dropdownAvailableAt.selectedItem as String
 
@@ -64,9 +67,10 @@ class FilterFragment : Fragment() {
             }
 
             val filteredCoffees = CoffeeData.filterCoffee(rangeTotal, rangeTaste, rangeCost,
-                rangeAvailability, selectedStore)
+                rangeAvailability, selectedStore, searchText)
 
-            //TODO SHow Filtered-List (Should to be done in the Search-Issue
+            val action = FilterFragmentDirections.actionOpenFilterResult(filteredCoffees.toIntArray())
+            Navigation.findNavController(view).navigate(action)
         }
     }
 }

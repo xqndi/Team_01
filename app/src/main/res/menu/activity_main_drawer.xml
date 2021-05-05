@@ -16,10 +16,6 @@
             android:title="@string/menu_filter" />
 
         <item
-            android:id="@+id/nav_search"
-            android:title="@string/menu_search" />
-
-        <item
             android:id="@+id/nav_support"
             android:title="@string/menu_support" />
 
