@@ -81,7 +81,7 @@ class CoffeeTest : TestCase() {
 
     fun testGetEvaluation() {
         coffee.reviews.clear()
-        assertEquals(0.0, coffee.evaluationTotal)
+        assertEquals(4.285714285714286, coffee.evaluationTotal)
     }
 
     fun testGetReviews() {

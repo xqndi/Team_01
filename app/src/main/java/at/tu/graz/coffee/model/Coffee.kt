@@ -47,9 +47,10 @@ data class Coffee(
         image
     ) {
         this.reviews = reviews
+        calculateNewEvaluation()
     }
 
-    private fun calculateNewEvaluation() {
+    fun calculateNewEvaluation() {
         evaluationTaste = 0.0
         evaluationCost = 0.0
         evaluationAvailability = 0.0
