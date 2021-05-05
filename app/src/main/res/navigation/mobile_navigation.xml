@@ -69,4 +69,10 @@
             android:defaultValue="-1"/>
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="at.tu.graz.coffee.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+
 </navigation>

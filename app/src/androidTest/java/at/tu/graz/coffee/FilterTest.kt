@@ -1,37 +1,23 @@
 package at.tu.graz.coffee
 
 
-import androidx.test.espresso.DataInteraction
-import androidx.test.espresso.ViewInteraction
+import android.view.View
+import android.view.ViewGroup
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import android.view.View
-import android.view.ViewGroup
-import android.view.ViewParent
-
-import androidx.test.InstrumentationRegistry.getInstrumentation
-import androidx.test.espresso.Espresso.onData
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.pressBack
-import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
-import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.*
-import androidx.test.espresso.matcher.ViewMatchers.*
-
-import at.tu.graz.coffee.R
-
 import org.hamcrest.Description
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.`is`
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
-import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.anything
-import org.hamcrest.Matchers.`is`
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -44,37 +30,37 @@ class FilterTest {
     @Test
     fun filterTest() {
         val appCompatImageButton = onView(
-allOf(withContentDescription("Open navigation drawer"),
-childAtPosition(
-allOf(withId(R.id.toolbar),
-childAtPosition(
-withClassName(`is`("com.google.android.material.appbar.AppBarLayout")),
-0)),
-1),
-isDisplayed()))
+                allOf(withContentDescription("Open navigation drawer"),
+                        childAtPosition(
+                                allOf(withId(R.id.toolbar),
+                                        childAtPosition(
+                                                withClassName(`is`("com.google.android.material.appbar.AppBarLayout")),
+                                                0)),
+                                1),
+                        isDisplayed()))
         appCompatImageButton.perform(click())
-        
+
         val navigationMenuItemView = onView(
-allOf(withId(R.id.nav_filter),
-childAtPosition(
-allOf(withId(R.id.design_navigation_view),
-childAtPosition(
-withId(R.id.nav_view),
-0)),
-3),
-isDisplayed()))
+                allOf(withId(R.id.nav_filter),
+                        childAtPosition(
+                                allOf(withId(R.id.design_navigation_view),
+                                        childAtPosition(
+                                                withId(R.id.nav_view),
+                                                0)),
+                                3),
+                        isDisplayed()))
         navigationMenuItemView.perform(click())
-        
+
         val materialButton = onView(
-allOf(withId(R.id.btn_filter), withText("Filter"),
-childAtPosition(
-childAtPosition(
-withClassName(`is`("android.widget.ScrollView")),
-0),
-1)))
+                allOf(withId(R.id.btn_filter), withText("Filter"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(`is`("android.widget.ScrollView")),
+                                        0),
+                                1)))
         materialButton.perform(scrollTo(), click())
-        }
-    
+    }
+
     private fun childAtPosition(
             parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 
@@ -91,4 +77,4 @@ withClassName(`is`("android.widget.ScrollView")),
             }
         }
     }
-    }
+}

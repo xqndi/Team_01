@@ -51,13 +51,13 @@ class HomeAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapter() {
 
         val viewholder = homeRow.tag as ViewHolderPattern
         viewholder.nameTextView.text = mCoffeeList[position].name
-        //TODO: rating is not implemented yet, so we use price to show the stars in the rating
-        viewholder.ratingTextView.text = mCoffeeList[position].price.toString()
+
+        viewholder.ratingTextView.text = mCoffeeList[position].evaluationTotal.toString()
 
         viewholder.imageView.setImageResource(mContext.resources.getIdentifier(mCoffeeList[position].image,
             "drawable", mContext.packageName))
 
-        viewholder.ratingBar.rating = mCoffeeList[position].price.toFloat()
+        viewholder.ratingBar.rating = mCoffeeList[position].evaluationTotal.toFloat()
         return homeRow
     }
 
