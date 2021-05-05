@@ -8,7 +8,8 @@ object CoffeeData {
         Review(1, 1,1,  "2"),
         Review(6, 6,2,  "3"),
         Review(1, 7,5,  "4"),
-        Review(3, 4,7,  "5"))
+        Review(3, 4,7,  "5")
+    )
     private val coffees : List<Coffee> = listOf(
         Coffee(1,"Caffe Crema", 9.00, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
