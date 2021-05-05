@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.R
 
@@ -60,6 +62,12 @@ class CoffeeDetailFragment : Fragment() {
 
         val additionalInformation = view.findViewById<TextView>(R.id.txt_additional_information)
         additionalInformation.text = coffee.additionalInformation
+
+        val reviewButton = view.findViewById<Button>(R.id.btn_comments)
+        reviewButton.setOnClickListener {
+            val action = CoffeeDetailFragmentDirections.actionOpenDetails(coffee.id)
+            Navigation.findNavController(view).navigate(action)
+        }
     }
 
     private fun setEvaluation(value: Double, type: String) {
