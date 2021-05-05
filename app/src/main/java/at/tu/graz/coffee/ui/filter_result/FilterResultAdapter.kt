@@ -1,4 +1,4 @@
-package at.tu.graz.coffee.ui.home
+package at.tu.graz.coffee.ui.filter_result
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -12,8 +12,7 @@ import androidx.navigation.Navigation.findNavController
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Coffee
 
-
-class HomeAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapter() {
+class FilterResultAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapter() {
     private val mContext: Context = context
     private val mCoffeeList: List<Coffee> = coffeeList
 
@@ -45,7 +44,7 @@ class HomeAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapter() {
         }
 
         homeRow.setOnClickListener {
-            val action = HomeFragmentDirections.actionOpenDetails(mCoffeeList[position].id)
+            val action = FilterResultFragmentDirections.actionOpenDetails(mCoffeeList[position].id)
             findNavController(viewGroup).navigate(action)
         }
 

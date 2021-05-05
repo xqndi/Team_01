@@ -42,5 +42,8 @@
     <string name="FirstLanguage">английский</string>
     <string name="SecondLanguage">русский</string>
     <string name="LanguageApplyButton">Применять</string>
+    <string name="filter_result">Результат фильтра</string>
+    <string name="search">Поиск:</string>
+    <string name="empty_list">Кофе не обнаружен.</string>
 
 </resources>
