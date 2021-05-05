@@ -8,14 +8,15 @@ data class Coffee(val id: Int,
                   val quantity: Double = -1.0,
                   val strength: Int = -1,
                   val additionalInformation: String = "",
-                  val image: String) {
+                  val image: String,
+                  val reviews: MutableList<Review>) {
 
     var evaluationTotal: Double = 0.0
     var evaluationTaste: Double = 0.0
     var evaluationCost: Double = 0.0
     var evaluationAvailability: Double = 0.0
 
-    val reviews: MutableList<Review> = mutableListOf()
+
 
     fun addReview(review: Review) {
         reviews.add(review)
