@@ -32,5 +32,7 @@
     <string name="strength">Strength:</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
+    <string name="menu_filter">Filter</string>
+    <string name="filter_btn">Filter</string>
 
 </resources>

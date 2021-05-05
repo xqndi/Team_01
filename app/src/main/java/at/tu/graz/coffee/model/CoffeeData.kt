@@ -46,4 +46,20 @@ object CoffeeData {
         }
         return coffeeList[0]
     }
+
+    fun filterCoffee(rangeTotal: List<Float>, rangeTaste: List<Float>, rangeCost: List<Float>,
+                     rangeAvailability: List<Float>) : List<Coffee> {
+        val filteredCoffees: MutableList<Coffee> = mutableListOf()
+
+        coffees.forEach{
+            if(it.evaluationTotal >= rangeTotal[0] && it.evaluationTotal <= rangeTotal[1] &&
+                it.evaluationTaste >= rangeTaste[0] && it.evaluationTaste <= rangeTaste[1] &&
+                it.evaluationCost >= rangeCost[0] && it.evaluationCost <= rangeCost[1] &&
+                it.evaluationAvailability >= rangeAvailability[0] &&
+                it.evaluationAvailability <= rangeAvailability[1]) {
+                filteredCoffees.add(it)
+            }
+        }
+        return filteredCoffees
+    }
 }
