@@ -11,7 +11,7 @@ Burim Vrella, [@burimvrella](https://github.com/burimvrella)
 Benjamin Gaal, [@bengaal](https://github.com/bengaal)
 
 ### Senior Developer
-Sedjan Ljepojevic, [@srdjanlj](https://github.com/srdjanlj)<br/>
+Srdjan Ljepojevic, [@srdjanlj](https://github.com/srdjanlj)<br/>
 Florian Haid, [@FlorianHaid](https://github.com/FlorianHaid)<br/>
 
 ### Junior Developer
