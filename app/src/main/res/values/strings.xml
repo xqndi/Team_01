@@ -40,6 +40,7 @@
 
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
+
     <string name="settings">Settings</string>
     <string name="FirstLanguage">English</string>
     <string name="SecondLanguage">Russian</string>
@@ -47,9 +48,11 @@
     <string name="filter_result">Filter Result</string>
     <string name="search">Search:</string>
     <string name="empty_list">No coffee has been found.</string>
+
     <string name="tel_nr" >Telephon</string>
     <string name="email" translatable="false">E-Mail Address</string>
     <string name="po_name" translatable="false">Burim Vrella</string>
     <string name="Product_Owner" >Product Owner</string>
     <string name="contact" >Contact</string>
+
 </resources>
