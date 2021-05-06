@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Coffee</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Дом</string>
+    <string name="menu_addCoffee">Добавить кофе</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_support">Служба поддержки</string>
+
+    <string name="details">Details</string>
+    <string name="price">%.2f €</string>
+    <string name="quantity">%.2f g</string>
+    <string name="availability">Availability:</string>
+    <string name="cost">Cost:</string>
+    <string name="taste">Taste:</string>
+    <string name="total">Total:</string>
+    <string name="coffee_type">Coffee type:</string>
+    <string name="available_at">Available at:</string>
+    <string name="price_lbl">Price:</string>
+    <string name="quantity_lbl">Quantity:</string>
+    <string name="strength">Strength:</string>
+    <string name="additional_information">Additional information:</string>
+    <string name="reviews_btn">Reviews</string>
+    <string name="settings">Settings</string>
+
+    <string name="FirstLanguage">English</string>
+    <string name="SecondLanguage">Russian</string>
+</resources>
