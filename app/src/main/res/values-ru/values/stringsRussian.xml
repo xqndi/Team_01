@@ -7,20 +7,14 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_addCoffee">Add Coffee</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_support">Support</string>
-
-    <string name="owner">Owner</string>
-    <string name="question">Whom do you want to contact?</string>
-    <string name="message">Your Message:</string>
-    <string name="sendEmail">Send Message</string>
-    <string name="emailConfirm">Email sent successfully!</string>
+    <string name="menu_home">Дом</string>
+    <string name="menu_addCoffee">Добавить кофе</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_support">Служба поддержки</string>
 
     <string name="details">Details</string>
     <string name="price">%.2f €</string>
-    <string name="quantity">%.2f kg</string>
+    <string name="quantity">%.2f g</string>
     <string name="availability">Availability:</string>
     <string name="cost">Cost:</string>
     <string name="taste">Taste:</string>
@@ -32,22 +26,8 @@
     <string name="strength">Strength:</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
-    <string name="comment">Comment</string>
-    <string name="comments">Comments</string>
-    <string name="submit">Submit</string>
-    <string name="comment_hint">Please write your comment here.</string>
-    <string name="menu_filter">Filter</string>
-    <string name="menu_filter">Filter &amp; Search</string>
-    <string name="filter_btn">Filter</string>
-    <string name="all_shops">All Shops</string>
     <string name="settings">Settings</string>
-
 
     <string name="FirstLanguage">English</string>
     <string name="SecondLanguage">Russian</string>
-    <string name="LanguageApplyButton">Apply</string>
-    <string name="filter_result">Filter Result</string>
-    <string name="search">Search:</string>
-    <string name="empty_list">No coffee has been found.</string>
-
 </resources>

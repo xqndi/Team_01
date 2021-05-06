@@ -58,6 +58,18 @@ object CoffeeData {
         return coffeeList[0]
     }
 
+    fun getCoffeeList(idArray: IntArray?) : MutableList<Coffee> {
+        val coffeeList: MutableList<Coffee> = mutableListOf()
+
+        coffees.forEach{
+            if(idArray?.contains(it.id) == true) {
+                coffeeList.add(it)
+            }
+        }
+
+        return coffeeList
+    }
+
     fun getStoresOfAllCoffees() : ArrayList<String> {
         val coffeeStores: ArrayList<String> = ArrayList()
 
@@ -70,8 +82,8 @@ object CoffeeData {
     }
 
     fun filterCoffee(rangeTotal: List<Float>, rangeTaste: List<Float>, rangeCost: List<Float>,
-                     rangeAvailability: List<Float>, selectedStore: String) : List<Coffee> {
-        val filteredCoffees: MutableList<Coffee> = mutableListOf()
+                     rangeAvailability: List<Float>, selectedStore: String, searchText: String) : List<Int> {
+        val filteredCoffees: MutableList<Int> = mutableListOf()
 
         coffees.forEach{
             if(it.evaluationTotal >= rangeTotal[0] && it.evaluationTotal <= rangeTotal[1] &&
@@ -79,9 +91,10 @@ object CoffeeData {
                 it.evaluationCost >= rangeCost[0] && it.evaluationCost <= rangeCost[1] &&
                 it.evaluationAvailability >= rangeAvailability[0] &&
                 it.evaluationAvailability <= rangeAvailability[1] &&
-                (it.storeToBuyFrom == selectedStore || selectedStore == "")) {
+                (it.storeToBuyFrom == selectedStore || selectedStore == "") &&
+                (it.name.contains(searchText, ignoreCase = true) || searchText == "")){
 
-                filteredCoffees.add(it)
+                filteredCoffees.add(it.id)
             }
         }
         return filteredCoffees
