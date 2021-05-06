@@ -47,9 +47,9 @@
     <string name="filter_result">Filter Result</string>
     <string name="search">Search:</string>
     <string name="empty_list">No coffee has been found.</string>
-    <string name="tel_nr" translatable="false">Telephon</string>
+    <string name="tel_nr" >Telephon</string>
     <string name="email" translatable="false">E-Mail Address</string>
     <string name="po_name" translatable="false">Burim Vrella</string>
-    <string name="Product_Owner" translatable="false">Product Owner</string>
-    <string name="contact" translatable="false">Contact</string>
+    <string name="Product_Owner" >Product Owner</string>
+    <string name="contact" >Contact</string>
 </resources>
