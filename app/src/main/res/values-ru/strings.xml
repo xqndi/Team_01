@@ -45,5 +45,8 @@
     <string name="filter_result">Результат фильтра</string>
     <string name="search">Поиск:</string>
     <string name="empty_list">Кофе не обнаружен.</string>
+    <string name="contact">контакт</string>
+    <string name="Product_Owner">Владелец продукта</string>
+    <string name="tel_nr">Телефон</string>
 
 </resources>
