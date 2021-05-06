@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -15,21 +14,20 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
-import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SupportTest {
+class SupportTestSendEmail {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun supportTest() {
+    fun supportTestSendEmail() {
         val appCompatImageButton = onView(
 allOf(withContentDescription("Open navigation drawer"),
 childAtPosition(
@@ -48,41 +46,9 @@ allOf(withId(R.id.design_navigation_view),
 childAtPosition(
 withId(R.id.nav_view),
 0)),
-5),
+4),
 isDisplayed()))
         navigationMenuItemView.perform(click())
-        
-        val radioButton = onView(
-allOf(withId(R.id.rdbtn_Owner), withText("Owner"),
-withParent(allOf(withId(R.id.radio_group),
-withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java)))),
-isDisplayed()))
-        radioButton.check(matches(isDisplayed()))
-        
-        val radioButton2 = onView(
-allOf(withId(R.id.rdbtn_Support), withText("Support"),
-withParent(allOf(withId(R.id.radio_group),
-withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java)))),
-isDisplayed()))
-        radioButton2.check(matches(isDisplayed()))
-        
-        val editText = onView(
-allOf(withId(R.id.txt_supportMsg),
-withParent(withParent(withId(R.id.nav_host_fragment))),
-isDisplayed()))
-        editText.check(matches(isDisplayed()))
-        
-        val button = onView(
-allOf(withId(R.id.btn_sendEmail), withText("SEND MESSAGE"),
-withParent(withParent(withId(R.id.nav_host_fragment))),
-isDisplayed()))
-        button.check(matches(isDisplayed()))
-        
-        val button2 = onView(
-allOf(withId(R.id.btn_sendEmail), withText("SEND MESSAGE"),
-withParent(withParent(withId(R.id.nav_host_fragment))),
-isDisplayed()))
-        button2.check(matches(isDisplayed()))
         
         val appCompatEditText = onView(
 allOf(withId(R.id.txt_supportMsg),
@@ -92,7 +58,7 @@ withId(R.id.nav_host_fragment),
 0),
 1),
 isDisplayed()))
-        appCompatEditText.perform(replaceText("testt"), closeSoftKeyboard())
+        appCompatEditText.perform(replaceText("test"), closeSoftKeyboard())
         
         val materialButton = onView(
 allOf(withId(R.id.btn_sendEmail), withText("Send Message"),
