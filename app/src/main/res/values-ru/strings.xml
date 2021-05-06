@@ -36,7 +36,12 @@
     <string name="menu_filter">Фильтр</string>
     <string name="filter_btn">Фильтр</string>
     <string name="all_shops">Все магазины</string>
+    <string name="comment">Comment</string>
+    <string name="comments">Comments</string>
+    <string name="submit">Submit</string>
+    <string name="comment_hint">Please write your comment here.</string>
 
+    <string name="menu_filter_search">фильтр &amp; поиск</string>
     <string name="settings">Настройки</string>
 
     <string name="FirstLanguage">английский</string>

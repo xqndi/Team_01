@@ -37,7 +37,7 @@
     <string name="submit">Submit</string>
     <string name="comment_hint">Please write your comment here.</string>
     <string name="menu_filter">Filter</string>
-    <string name="menu_filter">Filter &amp; Search</string>
+    <string name="menu_filter_search">Filter &amp; Search</string>
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
     <string name="settings">Settings</string>
