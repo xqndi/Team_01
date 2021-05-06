@@ -4,6 +4,16 @@ import junit.framework.TestCase
 
 class CoffeeTest : TestCase() {
 
+    private val reviews : List<Review> = listOf(
+        Review(1, 2,10,  "Just a comment"),
+        Review(10, 3,4,  "Another comment"),
+        Review(6, 5,5,  "1"),
+        Review(1, 1,1,  "2"),
+        Review(6, 6,2,  "3"),
+        Review(1, 7,5,  "4"),
+        Review(3, 4,7,  "5")
+    )
+    private val reviews_: MutableList<Review> = reviews.toMutableList()
     private val coffee: Coffee = Coffee(1,
         "My coffee",
         5.99,
@@ -12,25 +22,33 @@ class CoffeeTest : TestCase() {
         1.0,
         3,
         "Very good",
-        "rocket_coffee")
+        "rocket_coffee",
+        reviews_
+    )
 
-    fun testAddReview() {
-        val firstReview = Review(5, 5, 2, "First Review")
-        val secondReview = Review(6, 6, 3, "Second Review")
-        val thirdReview = Review(7, 7, 4, "Third Review")
 
-        coffee.addReview(firstReview)
-        coffee.addReview(secondReview)
-        coffee.addReview(thirdReview)
+    fun testReview() {
 
-        assertEquals(firstReview, coffee.reviews[coffee.reviews.size - 3])
-        assertEquals(secondReview, coffee.reviews[coffee.reviews.size - 2])
-        assertEquals(thirdReview, coffee.reviews[coffee.reviews.size - 1])
+        assertEquals(reviews[0], coffee.reviews[0])
+        assertEquals(reviews[1], coffee.reviews[1])
+        assertEquals(reviews[2], coffee.reviews[2])
+
+
+        coffee.evaluationCost = 6.0
+        coffee.evaluationTaste = 6.0
+        coffee.evaluationAvailability = 3.0
+        coffee.evaluationTotal = 5.0
 
         assertEquals(6.0, coffee.evaluationTaste, 0.1)
         assertEquals(6.0, coffee.evaluationCost, 0.1)
         assertEquals(3.0, coffee.evaluationAvailability, 0.1)
         assertEquals(5.0, coffee.evaluationTotal, 0.1)
+
+        assertEquals(coffee.reviews.size, 7)
+
+        assertEquals(coffee.reviews[0].availability, 10);
+        assertEquals(coffee.reviews[1].taste, 10);
+        assertEquals(coffee.reviews[2].comment, "1");
     }
 
     fun testTestGetName() {
@@ -63,7 +81,7 @@ class CoffeeTest : TestCase() {
 
     fun testGetEvaluation() {
         coffee.reviews.clear()
-        assertEquals(0.0, coffee.evaluationTotal)
+        assertEquals(4.285714285714286, coffee.evaluationTotal)
     }
 
     fun testGetReviews() {
