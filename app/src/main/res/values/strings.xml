@@ -32,11 +32,13 @@
     <string name="strength">Strength:</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
-    <string name="comment" translatable="false">Comment</string>
-    <string name="comments" translatable="false">Comments</string>
-    <string name="submit" translatable="false">Submit</string>
-    <string name="comment_hint" translatable="false">Please write your comment here.</string>
+
+    <string name="comment">Comment</string>
+    <string name="comments">Comments</string>
+    <string name="submit">Submit</string>
+    <string name="comment_hint">Please write your comment here.</string>
     <string name="menu_filter">Filter</string>
+    <string name="menu_filter_search">Filter &amp; Search</string>
 
     <string name="filter_btn">Filter</string>
     <string name="all_shops">All Shops</string>
