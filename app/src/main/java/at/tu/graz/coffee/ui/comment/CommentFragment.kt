@@ -47,6 +47,7 @@ class CommentFragment : Fragment() {
 
         listView.adapter = CommentAdapter(requireContext(), reviewsList)
         listAdapter = listView.adapter as CommentAdapter
+        setListViewHeightBasedOnItems(listView)
 
         val submitButton = view.findViewById<Button>(R.id.btn_comment_submit)
         submitButton.setOnClickListener {
@@ -74,6 +75,34 @@ class CommentFragment : Fragment() {
             availabilitySlider.setValues(0.0F,0.0F)
 
             Toast.makeText(activity, "Comment added", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // https://stackoverflow.com/questions/35115788/how-to-set-listview-height-depending-on-the-items-inside-scrollview/48027821
+    fun setListViewHeightBasedOnItems(listView: ListView): Boolean {
+        val listAdapter = listView.adapter
+        return if (listAdapter != null) {
+            val numberOfItems = listAdapter.count
+
+            var totalItemsHeight = 0
+            for (itemPos in 0 until numberOfItems) {
+                val item = listAdapter.getView(itemPos, null, listView)
+                val px = 500 * listView.resources.displayMetrics.density
+                item.measure(View.MeasureSpec.makeMeasureSpec(px.toInt(), View.MeasureSpec.AT_MOST), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+                totalItemsHeight += item.measuredHeight
+            }
+
+            val totalDividersHeight = listView.dividerHeight *
+                    (numberOfItems - 1)
+            val totalPadding = listView.paddingTop + listView.paddingBottom
+
+            val params = listView.layoutParams
+            params.height = totalItemsHeight + totalDividersHeight + totalPadding
+            listView.layoutParams = params
+            listView.requestLayout()
+            true
+        } else {
+            false
         }
     }
 }
