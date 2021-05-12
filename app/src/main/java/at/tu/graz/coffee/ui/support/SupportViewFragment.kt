@@ -34,7 +34,7 @@ class SupportViewFragment : Fragment() {
             var id: Int = radio_group.checkedRadioButtonId
 
             if (id == rdbtn_Owner.id) {
-                emailToSend = "johntusha04@gmail.com"
+                emailToSend = "burimvrella@gmail.com"
             };
             else
             {
