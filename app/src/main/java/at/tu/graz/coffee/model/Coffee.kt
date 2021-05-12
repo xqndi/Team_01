@@ -1,15 +1,20 @@
 package at.tu.graz.coffee.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Coffee(
-    val id: Int,
-    val name: String,
-    val price: Double,
-    val storeToBuyFrom: String,
-    val coffeeType: CoffeeType,
-    val quantity: Double = -1.0,
-    val strength: Int = -1,
-    val additionalInformation: String = "",
-    val image: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: Double,
+    @ColumnInfo(name = "store_to_buy_from") val storeToBuyFrom: String,
+    @ColumnInfo(name = "coffee_type") val coffeeType: CoffeeType,
+    @ColumnInfo(name = "quantity") val quantity: Double = -1.0,
+    @ColumnInfo(name = "strength") val strength: Int = -1,
+    @ColumnInfo(name = "additional_information") val additionalInformation: String = "",
+    @ColumnInfo(name = "image") val image: String
 ) {
 
     var evaluationTotal: Double = 0.0
