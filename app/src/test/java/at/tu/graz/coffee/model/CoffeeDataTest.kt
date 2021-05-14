@@ -122,4 +122,20 @@ class CoffeeDataTest : TestCase() {
             assertEquals(true, it.name.contains(searchText, ignoreCase = true))
         }
     }
+
+    fun testFilterCoffeeSearchTextReviews() {
+        val rangeTotal : List<Float> = listOf(0f, 10f)
+        val rangeTaste : List<Float> = listOf(0f, 10f)
+        val rangeCost : List<Float> = listOf(0f, 10f)
+        val rangeAvailability : List<Float> = listOf(0f, 10f)
+        val selectedStore = ""
+        val searchText = "comment"
+        val filteredCoffees = CoffeeData.filterCoffee(rangeTotal, rangeTaste, rangeCost,
+            rangeAvailability, selectedStore, searchText)
+
+        val coffees = CoffeeData.getCoffeeList(filteredCoffees.toIntArray())
+        coffees.forEach{
+            assertEquals(true, CoffeeData.checkReviews(it, searchText))
+        }
+    }
 }
