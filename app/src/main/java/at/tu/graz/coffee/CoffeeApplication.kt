@@ -13,7 +13,6 @@ class CoffeeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         ctx = applicationContext
         Fresco.initialize(ctx)
     }
