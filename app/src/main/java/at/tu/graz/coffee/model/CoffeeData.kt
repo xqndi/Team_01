@@ -100,7 +100,7 @@ object CoffeeData {
         return filteredCoffees
     }
 
-    private fun checkReviews(coffee: Coffee, searchText: String) : Boolean {
+    fun checkReviews(coffee: Coffee, searchText: String) : Boolean {
         coffee.reviews.forEach{
             if(it.comment.contains(searchText, ignoreCase = true)) {
                 return true
