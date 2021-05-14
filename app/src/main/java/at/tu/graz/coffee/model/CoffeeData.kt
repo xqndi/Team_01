@@ -92,11 +92,20 @@ object CoffeeData {
                 it.evaluationAvailability >= rangeAvailability[0] &&
                 it.evaluationAvailability <= rangeAvailability[1] &&
                 (it.storeToBuyFrom == selectedStore || selectedStore == "") &&
-                (it.name.contains(searchText, ignoreCase = true) || searchText == "")){
-
+                (it.name.contains(searchText, ignoreCase = true) || searchText == "" ||
+                        checkReviews(it, searchText))){
                 filteredCoffees.add(it.id)
             }
         }
         return filteredCoffees
+    }
+
+    private fun checkReviews(coffee: Coffee, searchText: String) : Boolean {
+        coffee.reviews.forEach{
+            if(it.comment.contains(searchText, ignoreCase = true)) {
+                return true
+            }
+        }
+        return false
     }
 }
