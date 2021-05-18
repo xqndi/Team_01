@@ -31,7 +31,7 @@ class CoffeeDatabaseTest {
     }
 
     @Test
-    fun insertCoffeeeInDatabaseTest() {
+    fun insertCoffeeInDatabaseTest() {
         val coffee = Coffee("Barista Espresso", 3.50, "Amazon",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso")
@@ -44,20 +44,14 @@ class CoffeeDatabaseTest {
         Review(1, 7,5,  "4", coffee.coffeeId),
         Review(3, 4,7,  "5", coffee.coffeeId)
         )
-        val coffeeWithReviews = CoffeeWithReviews(coffee, reviews)
-        coffeeDAO?.insertCoffee(coffee)
-        reviewDao?.insertAll(reviews)
 
+        coffeeDAO?.addCoffeeWithReviews(coffee, reviews)
         val coffeeTest = coffeeDAO?.getAll()?.get(0)
+
         if (coffeeTest != null) {
             Assert.assertEquals(coffee.name, coffeeTest.coffee.name)
+            Assert.assertEquals(reviews.size, coffeeTest.reviews.size)
+            Assert.assertFalse(reviews[0].comment == coffeeTest.reviews[6].comment)
         }
-    }
-
-
-
-    @Test
-    fun insertCoffeeWithReviewinDatabaseTest(){
-
     }
 }

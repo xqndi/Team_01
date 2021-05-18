@@ -10,7 +10,7 @@ data class Review(
     @ColumnInfo(name = "cost") var cost:Int=0,
     @ColumnInfo(name = "availability") var availability:Int=0,
     @ColumnInfo(name = "comment") var comment:String = "",
-    @ColumnInfo(name = "coffeeCreatorId") val coffeeCreatorId: Int
+    @ColumnInfo(name = "coffeeCreatorId") var coffeeCreatorId: Int
 ) {
     @PrimaryKey(autoGenerate = true) var reviewId: Int = 0
 }
