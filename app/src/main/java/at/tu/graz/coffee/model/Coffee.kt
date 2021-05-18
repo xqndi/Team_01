@@ -2,11 +2,11 @@ package at.tu.graz.coffee.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity
 data class Coffee(
-    @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: Double,
     @ColumnInfo(name = "store_to_buy_from") val storeToBuyFrom: String,
@@ -16,12 +16,12 @@ data class Coffee(
     @ColumnInfo(name = "additional_information") val additionalInformation: String = "",
     @ColumnInfo(name = "image") val image: String
 ) {
-
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
     var evaluationTotal: Double = 0.0
     var evaluationTaste: Double = 0.0
     var evaluationCost: Double = 0.0
     var evaluationAvailability: Double = 0.0
-
+    @Ignore
     var reviews: MutableList<Review> = mutableListOf()
 
     fun addReview(review: Review) {
@@ -30,7 +30,7 @@ data class Coffee(
     }
 
     constructor(
-        id: Int,
+        //id: Int,
         name: String,
         price: Double,
         storeToBuyFrom: String,
@@ -41,7 +41,7 @@ data class Coffee(
         image: String,
         reviews: MutableList<Review>
     ) : this(
-        id,
+        //id,
         name,
         price,
         storeToBuyFrom,

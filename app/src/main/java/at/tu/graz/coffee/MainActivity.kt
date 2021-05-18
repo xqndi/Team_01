@@ -19,6 +19,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.room.Room
+import at.tu.graz.coffee.controller.AppDatabase
 import com.google.android.material.navigation.NavigationView
 import java.util.*
 
@@ -27,13 +29,20 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     lateinit var localeToBeUsed: Locale
     private var currentLanguage: String? = null
+    private lateinit var database:AppDatabase
 
+    fun getDatabase(): AppDatabase{
+        return this.database
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        database = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "coffee-data"
+        ).build()
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)

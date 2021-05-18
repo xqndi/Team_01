@@ -62,7 +62,7 @@ class CommentFragment : Fragment() {
             val availabilitySlider = view.findViewById(R.id.comment_availability) as RangeSlider
             val valueAvailability : MutableList<Float> = availabilitySlider.values
 
-
+            //TODO change id
             val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString())
             coffee.reviews = (coffee.reviews.toMutableList() + newReview) as MutableList<Review>
 

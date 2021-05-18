@@ -1,4 +1,6 @@
 package at.tu.graz.coffee.model
+import android.content.Context
+import at.tu.graz.coffee.MainActivity
 
 object CoffeeData {
     private val reviews : List<Review> = listOf(
@@ -11,39 +13,42 @@ object CoffeeData {
         Review(3, 4,7,  "5")
     )
     private val coffees : List<Coffee> = listOf(
-        Coffee(1,"Caffe Crema", 9.00, "Supermarket",
+        Coffee("Caffe Crema", 9.00, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema", reviews as MutableList<Review>
         ),
-        Coffee(2,"Barista Espresso", 3.50, "Amazon",
+        Coffee("Barista Espresso", 3.50, "Amazon",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso"),
-        Coffee(3,"Black and White", 5.0, "Billa",
+        Coffee("Black and White", 5.0, "Billa",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),
-        Coffee(4,"Caffe Crema", 9.00, "Spar",
+        Coffee("Caffe Crema", 9.00, "Spar",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema",reviews as MutableList<Review> ),
-        Coffee(5,"Barista Espresso", 3.50, "Supermarket",
+        Coffee("Barista Espresso", 3.50, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso",reviews as MutableList<Review> ),
-        Coffee(6,"Black and White", 5.0, "Amazon",
+        Coffee("Black and White", 5.0, "Amazon",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),
-        Coffee(7,"Caffe Crema", 9.00, "Billa",
+        Coffee("Caffe Crema", 9.00, "Billa",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema" ,reviews as MutableList<Review>),
-        Coffee(8,"Barista Espresso", 3.50, "Spar",
+        Coffee("Barista Espresso", 3.50, "Spar",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_barista_espresso",reviews as MutableList<Review> ),
-        Coffee(9,"Black and White", 5.0, "Supermarket",
+        Coffee("Black and White", 5.0, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white",reviews as MutableList<Review> ),
-        Coffee(10,"Black and White", 5.0, "Supermarket",
+        Coffee("Black and White", 5.0, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "tchibo_black_and_white" ,reviews as MutableList<Review>),
     )
 
+    fun storeCoffeeInDatabase(){
+
+    }
 
     fun getCoffees() : List<Coffee> {
         return coffees;
