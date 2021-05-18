@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/nav_addCoffee"
-        android:name="at.tu.graz.coffee.ui.gallery.GalleryFragment"
+        android:name="at.tu.graz.coffee.ui.add_coffee.AddCoffeeFragment"
         android:label="@string/menu_addCoffee"
         tools:layout="@layout/fragment_add_coffee" />
 
