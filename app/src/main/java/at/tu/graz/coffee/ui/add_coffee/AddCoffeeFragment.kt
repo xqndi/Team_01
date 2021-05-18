@@ -1,5 +1,6 @@
 package at.tu.graz.coffee.ui.add_coffee
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
+import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.android.synthetic.main.fragment_support.*
 
 
@@ -36,6 +38,13 @@ class AddCoffeeFragment : Fragment() {
             CoffeeType.values() // Array
         )
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+
+        button_addCoffee.setOnClickListener{
+            if(coffee_name.text.isEmpty()) {
+                mandatory_field.visibility = View.VISIBLE
+                coffee_name.setBackgroundColor(Color.RED)
+            }
+        }
 
         // Finally, data bind the spinner object with dapter
         spinner?.adapter = adapter;
