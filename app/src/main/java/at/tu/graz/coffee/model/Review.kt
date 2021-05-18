@@ -5,11 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Review (
+data class Review(
     @ColumnInfo(name = "taste") var taste:Int=0,
     @ColumnInfo(name = "cost") var cost:Int=0,
-    @ColumnInfo(name = "availability")var availability:Int=0,
-    @ColumnInfo(name = "comment") var comment:String = ""
+    @ColumnInfo(name = "availability") var availability:Int=0,
+    @ColumnInfo(name = "comment") var comment:String = "",
+    @ColumnInfo(name = "coffeeCreatorId") val coffeeCreatorId: Int
 ) {
-    @PrimaryKey(autoGenerate = true) var id: Int = 0
+    @PrimaryKey(autoGenerate = true) var reviewId: Int = 0
 }

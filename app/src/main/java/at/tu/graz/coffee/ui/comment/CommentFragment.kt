@@ -13,7 +13,6 @@ import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Review
 import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailFragmentArgs
 import com.google.android.material.slider.RangeSlider
-import java.util.*
 
 class CommentFragment : Fragment() {
     private val viewModel: CommentViewModel by viewModels()
@@ -62,8 +61,8 @@ class CommentFragment : Fragment() {
             val availabilitySlider = view.findViewById(R.id.comment_availability) as RangeSlider
             val valueAvailability : MutableList<Float> = availabilitySlider.values
 
-            //TODO change id
-            val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString())
+            //TODO change coffeecreatorid
+            val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString(),0)
             coffee.reviews = (coffee.reviews.toMutableList() + newReview) as MutableList<Review>
 
             coffee.calculateNewEvaluation()

@@ -45,7 +45,7 @@ class HomeAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapter() {
         }
 
         homeRow.setOnClickListener {
-            val action = HomeFragmentDirections.actionOpenDetails(mCoffeeList[position].id)
+            val action = HomeFragmentDirections.actionOpenDetails(mCoffeeList[position].coffeeId)
             findNavController(viewGroup).navigate(action)
         }
 

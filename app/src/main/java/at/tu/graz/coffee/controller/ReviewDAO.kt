@@ -18,7 +18,7 @@ interface ReviewDAO {
     fun findByName(comment: String): Review*/
 
     @Insert
-    fun insertAll(vararg reviews: Review)
+    fun insertAll(reviews: List<Review>)
 
     @Delete
     fun delete(reviews: Review)

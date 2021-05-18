@@ -7,14 +7,14 @@ class CoffeeDataTest : TestCase() {
     fun testGetCoffee() {
         val id = 2
         val coffee = CoffeeData.getCoffee(id)
-        assertEquals(id, coffee?.id)
+        assertEquals(id, coffee?.coffeeId   )
     }
 
     fun testGetCoffeeList() {
         val ids: IntArray = intArrayOf(2, 4, 7)
         val coffees = CoffeeData.getCoffeeList(ids)
         coffees.forEach{
-            assertEquals(true, ids.contains(it.id))
+            assertEquals(true, ids.contains(it.coffeeId))
         }
 
     }

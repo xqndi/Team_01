@@ -44,7 +44,7 @@ class FilterResultAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapte
         }
 
         homeRow.setOnClickListener {
-            val action = FilterResultFragmentDirections.actionOpenDetails(mCoffeeList[position].id)
+            val action = FilterResultFragmentDirections.actionOpenDetails(mCoffeeList[position].coffeeId)
             findNavController(viewGroup).navigate(action)
         }
 

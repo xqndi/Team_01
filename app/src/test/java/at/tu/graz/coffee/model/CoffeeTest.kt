@@ -5,16 +5,16 @@ import junit.framework.TestCase
 class CoffeeTest : TestCase() {
 
     private val reviews : List<Review> = listOf(
-        Review(1, 2,10,  "Just a comment"),
+/*        Review(1, 2,10,  "Just a comment"),
         Review(10, 3,4,  "Another comment"),
         Review(6, 5,5,  "1"),
         Review(1, 1,1,  "2"),
         Review(6, 6,2,  "3"),
         Review(1, 7,5,  "4"),
-        Review(3, 4,7,  "5")
+        Review(3, 4,7,  "5")*/
     )
     private val reviews_: MutableList<Review> = reviews.toMutableList()
-    private val coffee: Coffee = Coffee(1,
+    private val coffee: Coffee = Coffee(
         "My coffee",
         5.99,
         "Amazon",
@@ -22,8 +22,8 @@ class CoffeeTest : TestCase() {
         1.0,
         3,
         "Very good",
-        "rocket_coffee",
-        reviews_
+        "rocket_coffee"
+        //, reviews_
     )
 
 
@@ -89,7 +89,7 @@ class CoffeeTest : TestCase() {
 
         assertEquals(0, coffee.reviews.size)
 
-        val review = Review(5, 5, 5, "Review")
+        val review = Review(5, 5, 5, "Review",0)
 
         coffee.addReview(review)
 
@@ -102,6 +102,6 @@ class CoffeeTest : TestCase() {
     }
 
     fun testGetId() {
-        assertEquals(1, coffee.id)
+        assertEquals(1, coffee.coffeeId)
     }
 }

@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "coffee")
 data class Coffee(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: Double,
@@ -16,7 +16,7 @@ data class Coffee(
     @ColumnInfo(name = "additional_information") val additionalInformation: String = "",
     @ColumnInfo(name = "image") val image: String
 ) {
-    @PrimaryKey(autoGenerate = true) var id: Int = 0
+    @PrimaryKey(autoGenerate = true) var coffeeId: Int = 0
     var evaluationTotal: Double = 0.0
     var evaluationTaste: Double = 0.0
     var evaluationCost: Double = 0.0

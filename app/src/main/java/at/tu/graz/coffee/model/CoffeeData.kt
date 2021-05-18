@@ -4,13 +4,13 @@ import at.tu.graz.coffee.MainActivity
 
 object CoffeeData {
     private val reviews : List<Review> = listOf(
-        Review(1, 2,10,  "Just a comment"),
+/*        Review(1, 2,10,  "Just a comment"),
         Review(10, 3,4,  "Another comment"),
         Review(6, 5,5,  "1"),
         Review(1, 1,1,  "2"),
         Review(6, 6,2,  "3"),
         Review(1, 7,5,  "4"),
-        Review(3, 4,7,  "5")
+        Review(3, 4,7,  "5")*/
     )
     private val coffees : List<Coffee> = listOf(
         Coffee("Caffe Crema", 9.00, "Supermarket",
@@ -55,7 +55,7 @@ object CoffeeData {
     }
 
     fun getCoffee(id: Int) : Coffee? {
-        val coffeeList = coffees.filter{it.id == id}
+        val coffeeList = coffees.filter{it.coffeeId == id}
 
         if(coffeeList.isNullOrEmpty()) {
             return null;
@@ -67,7 +67,7 @@ object CoffeeData {
         val coffeeList: MutableList<Coffee> = mutableListOf()
 
         coffees.forEach{
-            if(idArray?.contains(it.id) == true) {
+            if(idArray?.contains(it.coffeeId) == true) {
                 coffeeList.add(it)
             }
         }
@@ -99,7 +99,7 @@ object CoffeeData {
                 (it.storeToBuyFrom == selectedStore || selectedStore == "") &&
                 (it.name.contains(searchText, ignoreCase = true) || searchText == "")){
 
-                filteredCoffees.add(it.id)
+                filteredCoffees.add(it.coffeeId)
             }
         }
         return filteredCoffees

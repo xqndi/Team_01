@@ -65,7 +65,7 @@ class CoffeeDetailFragment : Fragment() {
 
         val reviewButton = view.findViewById<Button>(R.id.btn_comments)
         reviewButton.setOnClickListener {
-            val action = CoffeeDetailFragmentDirections.actionOpenDetails(coffee.id)
+            val action = CoffeeDetailFragmentDirections.actionOpenDetails(coffee.coffeeId)
             Navigation.findNavController(view).navigate(action)
         }
     }
