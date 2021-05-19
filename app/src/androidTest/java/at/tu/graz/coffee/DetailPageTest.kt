@@ -45,30 +45,30 @@ class DetailPageTest {
 
         val textView = onView(
             allOf(
-                withId(R.id.txt_coffee_name), withText("Caffe Crema"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
+                withId(R.id.txt_price), withText("9,00 €"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Caffe Crema")))
+        textView.check(matches(withText("9,00 €")))
 
         val textView2 = onView(
             allOf(
-                withId(R.id.txt_price), withText("9.00 €"),
+                withId(R.id.txt_quantity), withText("1,00 kg"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
                 isDisplayed()
             )
         )
-        textView2.check(matches(withText("9.00 €")))
+        textView2.check(matches(withText("1,00 kg")))
 
         val textView3 = onView(
             allOf(
-                withId(R.id.txt_quantity), withText("1.00 g"),
+                withId(R.id.txt_strength), withText("1"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
                 isDisplayed()
             )
         )
-        textView3.check(matches(withText("1.00 g")))
+        textView3.check(matches(withText("1")))
 
         val textView4 = onView(
             allOf(
@@ -81,30 +81,12 @@ class DetailPageTest {
 
         val textView5 = onView(
             allOf(
-                withId(R.id.txt_store_to_buy_from), withText("Supermarket"),
+                withId(R.id.txt_strength), withText("1"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
                 isDisplayed()
             )
         )
-        textView5.check(matches(withText("Supermarket")))
-
-        val textView6 = onView(
-            allOf(
-                withId(R.id.txt_coffee_type), withText("None"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
-                isDisplayed()
-            )
-        )
-        textView6.check(matches(withText("None")))
-
-        val textView7 = onView(
-            allOf(
-                withId(R.id.txt_coffee_type), withText("None"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.TableLayout::class.java))),
-                isDisplayed()
-            )
-        )
-        textView7.check(matches(withText("None")))
+        textView5.check(matches(withText("1")))
     }
 
     private fun childAtPosition(
