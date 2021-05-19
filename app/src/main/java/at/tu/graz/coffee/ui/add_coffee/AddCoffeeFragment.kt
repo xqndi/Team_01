@@ -1,26 +1,34 @@
 package at.tu.graz.coffee.ui.add_coffee
 
+import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.isEmpty
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.R
-import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
-import kotlinx.android.synthetic.main.fragment_details.*
-import kotlinx.android.synthetic.main.fragment_support.*
+import kotlinx.android.synthetic.main.fragment_filter_result.*
 
 
 class AddCoffeeFragment : Fragment() {
 
     private lateinit var addCoffeeViewModel: AddCoffeeViewModel
+
+    private var uriPicture: Uri? = null
+
+    private val pictureSelector = 100
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,9 +74,21 @@ class AddCoffeeFragment : Fragment() {
                 mandatory_field.visibility = View.GONE
                 coffee_price.setBackgroundColor(Color.WHITE)
             }
+            if(imageView.drawable == null) {
+                mandatory_field.visibility = View.VISIBLE
+                button_addPicture.setBackgroundColor(Color.RED)
+            }
+            else {
+                mandatory_field.visibility = View.GONE
+                button_addPicture.setBackgroundColor(resources.getColor(R.color.purple_500))
+            }
         }
 
-
+        button_addPicture.setOnClickListener{
+            val phonePictures = Intent(Intent.ACTION_PICK,
+                    MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                    startActivityForResult(phonePictures, pictureSelector)
+        }
 
         // Finally, data bind the spinner object with adapter
         spinner?.adapter = adapter;
@@ -88,7 +108,16 @@ class AddCoffeeFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Another interface callback
             }
+        }
+    }
+    override fun onActivityResult(neededPart: Int, outcomePart: Int, info: Intent?) {
+        super.onActivityResult(neededPart, outcomePart, info)
 
+        if (neededPart == pictureSelector) {
+            if (outcomePart == RESULT_OK) {
+                uriPicture = info?.data
+                imageView.setImageURI(uriPicture)
+            }
         }
     }
 }
