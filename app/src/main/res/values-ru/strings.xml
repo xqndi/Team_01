@@ -26,6 +26,7 @@
     <string name="taste">Вкус:</string>
     <string name="total">Общее:</string>
     <string name="coffee_type">Тип кофе:</string>
+    <string name="picture">картина</string>
     <string name="available_at">Доступны на:</string>
     <string name="price_lbl">Цена:</string>
     <string name="quantity_lbl">Количество:</string>

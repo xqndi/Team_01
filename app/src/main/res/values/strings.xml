@@ -25,11 +25,12 @@
     <string name="cost">Cost:</string>
     <string name="taste">Taste:</string>
     <string name="total">Total:</string>
-    <string name="coffee_type">Coffee type:</string>
+    <string name="coffee_type">Coffee type</string>
+    <string name="picture">Picture</string>
     <string name="available_at">Available at:</string>
-    <string name="price_lbl">Price:</string>
+    <string name="price_lbl">Price</string>
     <string name="quantity_lbl">Quantity:</string>
-    <string name="strength">Strength:</string>
+    <string name="strength">Strength</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
 
