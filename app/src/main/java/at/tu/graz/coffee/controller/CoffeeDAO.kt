@@ -1,20 +1,20 @@
 package at.tu.graz.coffee.controller
 
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CoffeeDAO {
     @Transaction
     @Query("SELECT * FROM coffee")
-    fun getAll(): MutableLiveData<List<CoffeeWithReviews>>
+    fun getAll(): Flow<List<CoffeeWithReviews>>
 
     @Transaction
     @Query("SELECT * FROM coffee WHERE coffeeId LIKE :id")
-    fun getById(id: Int): MutableLiveData<CoffeeWithReviews>
+    fun getById(id: Int): Flow<CoffeeWithReviews>
 
     @Insert
     fun insertCoffee(coffee: Coffee): Long
