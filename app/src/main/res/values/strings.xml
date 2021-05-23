@@ -57,5 +57,11 @@
     <string name="po_name" translatable="false">Burim Vrella</string>
     <string name="Product_Owner" >Product Owner</string>
     <string name="contact" >Contact</string>
+    <string name="name">Coffee-Name</string>
+    <string name="shop">Shop</string>
+    <string name="Quantity">Quantity</string>
+    <string name="Additional_info">Additional Info</string>
+    <string name="Add_coffee">Add Coffee</string>
+    <string name="mandatory_field">Mandatory Fields</string>
 
 </resources>
