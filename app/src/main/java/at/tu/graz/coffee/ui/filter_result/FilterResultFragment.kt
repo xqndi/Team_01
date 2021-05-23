@@ -28,7 +28,8 @@ class FilterResultFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_filter_result, container, false)
 
-        coffeeList = filterResultViewModel.getCoffees(args.filteredCoffeeList)
+        // FIXME: 23.05.21
+//        coffeeList = filterResultViewModel.getCoffees(args.filteredCoffeeList)
 
         val listView:ListView = root.findViewById(R.id.filter_result_listview)
         val empty = root.findViewById(R.id.empty) as TextView

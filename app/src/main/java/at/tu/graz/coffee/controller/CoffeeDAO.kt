@@ -1,5 +1,6 @@
 package at.tu.graz.coffee.controller
 
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeWithReviews
@@ -9,7 +10,11 @@ import at.tu.graz.coffee.model.Review
 interface CoffeeDAO {
     @Transaction
     @Query("SELECT * FROM coffee")
-    fun getAll(): List<CoffeeWithReviews>
+    fun getAll(): MutableLiveData<List<CoffeeWithReviews>>
+
+    @Transaction
+    @Query("SELECT * FROM coffee WHERE coffeeId LIKE :id")
+    fun getById(id: Int): MutableLiveData<CoffeeWithReviews>
 
     @Insert
     fun insertCoffee(coffee: Coffee): Long
