@@ -9,16 +9,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
+import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
+import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
 import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailFragmentArgs
+import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailViewModel
+import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailViewModelFactory
 import com.google.android.material.slider.RangeSlider
 
 class CommentFragment : Fragment() {
-    private val viewModel: CommentViewModel by viewModels()
+    private val viewModel: CommentViewModel by viewModels {
+        CommentViewModelFactory((requireActivity().application as CoffeeApplication).coffeeRepository)
+    }
     private val args: CoffeeDetailFragmentArgs by navArgs()
-    private var reviewsList  = mutableListOf<Review>()
-    private lateinit var listAdapter : CommentAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,17 +41,20 @@ class CommentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getCoffee(args.coffeeId).observe(requireActivity()) { coffee ->
+            setData(coffee, view)
+        }
+    }
+
+    fun setData(coffeeWithReviews: CoffeeWithReviews, view: View) {
         val coffeeName = view.findViewById<TextView>(R.id.comment_coffee_name)
-
-        val coffee = viewModel.getCoffee(args.coffeeId) ?: return
-        coffeeName.text = coffee.name
-
-        reviewsList = (viewModel.getCoffee(args.coffeeId)?.reviews) as MutableList<Review>
+        coffeeName.text = coffeeWithReviews.coffee.name
 
         val listView: ListView = view.findViewById(R.id.comment_listview)
 
-        listView.adapter = CommentAdapter(requireContext(), reviewsList)
-        listAdapter = listView.adapter as CommentAdapter
+        val adapter = CommentAdapter(requireContext(), coffeeWithReviews.reviews.toMutableList())
+        listView.adapter = adapter
+
         setListViewHeightBasedOnItems(listView)
 
         val submitButton = view.findViewById<Button>(R.id.btn_comment_submit)
@@ -64,10 +73,10 @@ class CommentFragment : Fragment() {
             //TODO change coffeecreatorid
             val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString(),0)
 
-            coffee.addReview(newReview)
+            //coffee.addReview(newReview)
 
             // FIXME: 23.05.21
-            listView.adapter = CommentAdapter(requireContext(), coffee.r)
+            //listView.adapter = CommentAdapter(requireContext(), coffee.r)
             text.text.clear()
             costSlider.setValues(0.0F,0.0F)
             tasteSlider.setValues(0.0F,0.0F)

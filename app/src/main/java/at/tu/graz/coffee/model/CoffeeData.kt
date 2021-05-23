@@ -9,23 +9,23 @@ object CoffeeData {
 
     }
 
-    fun getCoffees(context: Context?): MutableLiveData<List<CoffeeWithReviews>> {
-        val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
-        return coffeeDAO.getAll()
+    /*fun getCoffees(context: Context?): MutableLiveData<List<CoffeeWithReviews>>? {
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+        return null // coffeeDAO.getAll()
     }
 
-    fun getCoffee(id: Int, context: Context?) : MutableLiveData<CoffeeWithReviews> {
-        val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+    fun getCoffee(id: Int, context: Context?) : MutableLiveData<CoffeeWithReviews>? {
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
 
-        return coffeeDAO.getById(id)
+        return null //coffeeDAO.getById(id)
     }
 
     fun getReviews(id: Int, context: Context?) : List<Review>?
     {
-        val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
 
-        return coffeeDAO.getById(id).value?.reviews
-    }
+        return null //coffeeDAO.getById(id).value?.reviews
+    }*/
 
     fun getCoffeeList(idArray: IntArray?) : MutableList<Coffee> {
         val coffeeList: MutableList<Coffee> = mutableListOf()

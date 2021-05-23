@@ -1,19 +1,15 @@
 package at.tu.graz.coffee.ui.comment
 
 import android.content.Context
-import android.media.Rating
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.compose.navArgument
 import at.tu.graz.coffee.R
-import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.Review
-import org.w3c.dom.Text
+
 
 class CommentAdapter(context: Context, reviewList:MutableList<Review>): BaseAdapter() {
     private val mContext: Context = context

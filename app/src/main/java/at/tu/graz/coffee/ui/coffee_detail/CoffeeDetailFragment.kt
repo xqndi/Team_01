@@ -12,10 +12,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
+import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.ui.home.HomeViewModelFactory
 
 class CoffeeDetailFragment : Fragment() {
-    private val viewModel: CoffeeDetailViewModel by viewModels()
+    private val viewModel: CoffeeDetailViewModel by viewModels {
+        CoffeeDetailViewModelFactory((requireActivity().application as CoffeeApplication).coffeeRepository)
+    }
+
     private val args: CoffeeDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -31,8 +37,12 @@ class CoffeeDetailFragment : Fragment() {
 
         val res: Resources = resources
 
-        val coffee = viewModel.getCoffee(args.coffeeId) ?: return
+        viewModel.getCoffee(args.coffeeId).observe(requireActivity()) { coffee ->
+            setData(coffee.coffee, view, res)
+        }
+    }
 
+    private fun setData(coffee: Coffee, view: View, res: Resources) {
         val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
         imgCoffee?.setImageResource(resources.getIdentifier(coffee.image,
             "drawable", activity?.packageName))

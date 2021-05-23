@@ -29,19 +29,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var localeToBeUsed: Locale
     private var currentLanguage: String? = null
-    private lateinit var database: AppDatabase
-
-    fun getDatabase(): AppDatabase {
-        return this.database
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "coffee-data"
-        ).build()
-        createData()
+
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -104,74 +95,5 @@ class MainActivity : AppCompatActivity() {
         val currentUpdater = Intent(this, MainActivity::class.java)
         currentUpdater.putExtra(currentLanguage, languageToSet)
         startActivity(currentUpdater)
-    }
-
-    private fun createData() {
-        val reviews: List<Review> = listOf(
-            Review(1, 2, 10, "Just a comment", 1),
-            Review(10, 3, 4, "Another comment", 1),
-            Review(6, 5, 5, "1", 1),
-            Review(1, 1, 1, "2", 1),
-            Review(6, 6, 2, "3", 1),
-            Review(1, 7, 5, "4", 1),
-            Review(3, 4, 7, "5", 1)
-        )
-        val coffees: List<Coffee> = listOf(
-            Coffee(
-                "Caffe Crema", 9.00, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "spar_premium_caffe_crema"
-            ),
-            Coffee(
-                "Barista Espresso", 3.50, "Amazon",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_barista_espresso"
-            ),
-            Coffee(
-                "Black and White", 5.0, "Billa",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_black_and_white"
-            ),
-            Coffee(
-                "Caffe Crema", 9.00, "Spar",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "spar_premium_caffe_crema"
-            ),
-            Coffee(
-                "Barista Espresso", 3.50, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_barista_espresso"
-            ),
-            Coffee(
-                "Black and White", 5.0, "Amazon",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_black_and_white"
-            ),
-            Coffee(
-                "Caffe Crema", 9.00, "Billa",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "spar_premium_caffe_crema"
-            ),
-            Coffee(
-                "Barista Espresso", 3.50, "Spar",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_barista_espresso"
-            ),
-            Coffee(
-                "Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_black_and_white"
-            ),
-            Coffee(
-                "Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
-                "tchibo_black_and_white"
-            )
-        )
-
-        reviews.forEach { it.coffeeCreatorId = coffees[0].coffeeId }
-
-        coffees.forEach { database.coffeeDAO().insertCoffee(it) }
-        database.reviewDAO().insertAll(reviews)
     }
 }
