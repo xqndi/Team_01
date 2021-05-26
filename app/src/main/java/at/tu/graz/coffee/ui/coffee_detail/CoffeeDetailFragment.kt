@@ -15,7 +15,6 @@ import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Coffee
-import at.tu.graz.coffee.ui.home.HomeViewModelFactory
 
 class CoffeeDetailFragment : Fragment() {
     private val viewModel: CoffeeDetailViewModel by viewModels {

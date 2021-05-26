@@ -6,11 +6,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import at.tu.graz.coffee.controller.CoffeeRepository
 import at.tu.graz.coffee.model.CoffeeWithReviews
+import at.tu.graz.coffee.model.Review
 
 class CommentViewModel(private val repository: CoffeeRepository) : ViewModel() {
 
     fun getCoffee(id: Int): LiveData<CoffeeWithReviews> {
         return repository.getCoffee(id).asLiveData()
+    }
+
+    suspend fun insertReviewForCoffee(coffeeWithReviews: CoffeeWithReviews, newReviews: List<Review>) {
+        return repository.insertReview(coffeeWithReviews, newReviews)
     }
 }
 

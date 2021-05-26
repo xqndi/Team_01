@@ -19,8 +19,8 @@ interface CoffeeDAO {
     @Insert
     fun insertCoffee(coffee: Coffee): Long
 
-    @Insert
-    fun insertReviewList(reviews: List<Review>)
+    @Update
+    fun updateCoffee(coffee: Coffee): Int
 
     @Transaction
     fun addCoffeeWithReviews(coffee: Coffee, reviews: List<Review>){
@@ -28,7 +28,11 @@ interface CoffeeDAO {
         reviews.forEach{it.coffeeCreatorId = listId.toInt() }
         insertReviewList(reviews)
     }
-/*
+
+    @Insert
+    fun insertReviewList(reviews: List<Review>)
+
+    /*
     @Query("SELECT * FROM coffee WHERE coffeeId IN (:coffeeIds)")
     fun loadAllByIds(coffeeIds: IntArray): List<Coffee>
 
@@ -36,10 +40,5 @@ interface CoffeeDAO {
     fun findByName(name: String): Coffee
 
     @Insert
-    fun insertAll(vararg coffees: CoffeeWithReviews)
-
-    @Delete
-    fun delete(coffees: Coffee)*/
-
-
+    fun insertAll(vararg coffees: CoffeeWithReviews)*/
 }

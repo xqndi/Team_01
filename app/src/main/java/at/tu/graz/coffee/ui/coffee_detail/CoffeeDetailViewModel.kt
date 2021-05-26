@@ -3,7 +3,6 @@ package at.tu.graz.coffee.ui.coffee_detail
 import androidx.lifecycle.*
 import at.tu.graz.coffee.controller.CoffeeRepository
 import at.tu.graz.coffee.model.*
-import kotlinx.coroutines.launch
 
 
 class CoffeeDetailViewModel(private val repository: CoffeeRepository) : ViewModel() {

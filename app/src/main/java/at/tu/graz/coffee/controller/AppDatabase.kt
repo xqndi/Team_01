@@ -29,7 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getCoffeeInstance(context: Context, scope: CoroutineScope): CoffeeDAO {
             if (dbInstanceCoffee == null || dbInstanceReview == null) {
                 if (TEST_MODE) {
-                    if(db == null) {
+                    if (db == null) {
                         db = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
                             .allowMainThreadQueries()
                             .fallbackToDestructiveMigration()
@@ -40,7 +40,7 @@ abstract class AppDatabase : RoomDatabase() {
                     dbInstanceReview = db?.reviewDAO()
 
                 } else {
-                    if(db == null) {
+                    if (db == null) {
                         db = Room.databaseBuilder(context, AppDatabase::class.java, databaseName)
                             .fallbackToDestructiveMigration()
                             .addCallback(AppDatabaseCallback(scope))
@@ -56,7 +56,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getReviewInstance(context: Context, scope: CoroutineScope): ReviewDAO {
             if (dbInstanceCoffee == null || dbInstanceReview == null) {
                 if (TEST_MODE) {
-                    if(db == null) {
+                    if (db == null) {
                         db = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
                             .allowMainThreadQueries()
                             .fallbackToDestructiveMigration()
@@ -67,7 +67,7 @@ abstract class AppDatabase : RoomDatabase() {
                     dbInstanceReview = db?.reviewDAO()
 
                 } else {
-                    if(db == null) {
+                    if (db == null) {
                         db = Room.databaseBuilder(context, AppDatabase::class.java, databaseName)
                             .fallbackToDestructiveMigration()
                             .addCallback(AppDatabaseCallback(scope))

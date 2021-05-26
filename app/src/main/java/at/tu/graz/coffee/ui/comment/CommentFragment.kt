@@ -9,16 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.RecyclerView
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
-import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
 import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailFragmentArgs
-import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailViewModel
-import at.tu.graz.coffee.ui.coffee_detail.CoffeeDetailViewModelFactory
 import com.google.android.material.slider.RangeSlider
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class CommentFragment : Fragment() {
     private val viewModel: CommentViewModel by viewModels {
@@ -62,25 +61,35 @@ class CommentFragment : Fragment() {
             val text = view.findViewById(R.id.comment_text_field) as EditText
 
             val costSlider = view.findViewById(R.id.comment_cost) as RangeSlider
-            val valueCost : MutableList<Float> = costSlider.values
+            val valueCost: MutableList<Float> = costSlider.values
 
             val tasteSlider = view.findViewById(R.id.comment_taste) as RangeSlider
-            val valueTaste : MutableList<Float> = tasteSlider.values
+            val valueTaste: MutableList<Float> = tasteSlider.values
 
             val availabilitySlider = view.findViewById(R.id.comment_availability) as RangeSlider
-            val valueAvailability : MutableList<Float> = availabilitySlider.values
+            val valueAvailability: MutableList<Float> = availabilitySlider.values
 
-            //TODO change coffeecreatorid
-            val newReview = Review(valueTaste[0].toInt(), valueCost[0].toInt(), valueAvailability[0].toInt(), text.text.toString(),0)
+            val newReview = Review(
+                valueTaste[0].toInt(),
+                valueCost[0].toInt(),
+                valueAvailability[0].toInt(),
+                text.text.toString(),
+                coffeeWithReviews.coffee.coffeeId
+            )
 
-            //coffee.addReview(newReview)
+            GlobalScope.launch {
+                viewModel.insertReviewForCoffee(coffeeWithReviews, listOf(newReview))
+            }
 
-            // FIXME: 23.05.21
-            //listView.adapter = CommentAdapter(requireContext(), coffee.r)
+            listView.adapter = CommentAdapter(
+                requireContext(),
+                coffeeWithReviews.reviews as MutableList<Review>
+            )
+
             text.text.clear()
-            costSlider.setValues(0.0F,0.0F)
-            tasteSlider.setValues(0.0F,0.0F)
-            availabilitySlider.setValues(0.0F,0.0F)
+            costSlider.setValues(0.0F, 0.0F)
+            tasteSlider.setValues(0.0F, 0.0F)
+            availabilitySlider.setValues(0.0F, 0.0F)
 
             Toast.makeText(activity, "Comment added", Toast.LENGTH_SHORT).show()
         }
@@ -96,7 +105,10 @@ class CommentFragment : Fragment() {
             for (itemPos in 0 until numberOfItems) {
                 val item = listAdapter.getView(itemPos, null, listView)
                 val px = 500 * listView.resources.displayMetrics.density
-                item.measure(View.MeasureSpec.makeMeasureSpec(px.toInt(), View.MeasureSpec.AT_MOST), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+                item.measure(
+                    View.MeasureSpec.makeMeasureSpec(px.toInt(), View.MeasureSpec.AT_MOST),
+                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                )
                 totalItemsHeight += item.measuredHeight
             }
 
