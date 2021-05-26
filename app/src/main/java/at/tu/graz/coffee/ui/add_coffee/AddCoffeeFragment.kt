@@ -11,9 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import at.tu.graz.coffee.R
+import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeData
 import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
 import kotlinx.android.synthetic.main.fragment_filter_result.*
@@ -86,6 +90,7 @@ class AddCoffeeFragment : Fragment() {
                 mandatory_field.visibility = View.VISIBLE
             } else {
                 mandatory_field.visibility = View.GONE
+                addCoffee(view)
             }
         }
 
@@ -95,9 +100,9 @@ class AddCoffeeFragment : Fragment() {
                     startActivityForResult(phonePictures, pictureSelector)
         }
 
-        spinner?.adapter = adapter;
+        spinner_type?.adapter = adapter;
 
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinner_type.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View,
@@ -109,6 +114,19 @@ class AddCoffeeFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>) {
             }
         }
+    }
+
+    fun addCoffee(view: View) {
+        val coffee = Coffee(1234, coffee_name.text.toString(), coffee_price.text.toString().toDouble(),
+            coffee_shop.text.toString(), spinner_type.selectedItem as CoffeeType, coffee_qty.text.toString().toDouble(),
+            coffee_strength.values[0].toInt(), txt_additional_information.text.toString(), uriPicture.toString())
+
+        CoffeeData.addCoffee(coffee)
+
+        val action = AddCoffeeFragmentDirections.actionOpenHome()
+        Navigation.findNavController(view).navigate(action)
+
+        Toast.makeText(activity,R.string.coffee_added, Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(neededPart: Int, outcomePart: Int, info: Intent?) {

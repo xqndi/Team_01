@@ -1,7 +1,12 @@
 package at.tu.graz.coffee.model
 
+import android.content.res.Resources
+import android.net.Uri
+import android.widget.ImageView
+import at.tu.graz.coffee.R
+
 object CoffeeData {
-    private val reviews : List<Review> = listOf(
+    private val reviews : MutableList<Review> = mutableListOf(
         Review(1, 2,10,  "Just a comment"),
         Review(10, 3,4,  "Another comment"),
         Review(6, 5,5,  "1"),
@@ -10,7 +15,7 @@ object CoffeeData {
         Review(1, 7,5,  "4"),
         Review(3, 4,7,  "5")
     )
-    private val coffees : List<Coffee> = listOf(
+    private val coffees : MutableList<Coffee> = mutableListOf(
         Coffee(1,"Caffe Crema", 9.00, "Supermarket",
             CoffeeType.NONE, 1.00,1," ",
             "spar_premium_caffe_crema", reviews as MutableList<Review>
@@ -44,9 +49,12 @@ object CoffeeData {
             "tchibo_black_and_white" ,reviews as MutableList<Review>),
     )
 
+    fun addCoffee(coffee: Coffee) {
+        coffees.add(coffee)
+    }
 
     fun getCoffees() : List<Coffee> {
-        return coffees;
+        return coffees
     }
 
     fun getCoffee(id: Int) : Coffee? {

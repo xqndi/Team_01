@@ -64,7 +64,7 @@
     <string name="add_picture" >Add Picture</string>
     <string name="Add_coffee">Add Coffee</string>
     <string name="mandatory_field">Mandatory Field missing</string>
-
+    <string name="coffee_added">Coffee added</string>
 
 
 </resources>

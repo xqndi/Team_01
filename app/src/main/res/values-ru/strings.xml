@@ -64,5 +64,6 @@
     <string name="add_picture">Добавить картинку</string>
     <string name="price_add_lbl">Цена [€]:</string>
     <string name="quantity_add_lbl">Количество [кг]:</string>
+    <string name="coffee_added">Добавление кофе</string>
 
 </resources>
