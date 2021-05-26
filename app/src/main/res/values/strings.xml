@@ -29,7 +29,9 @@
     <string name="picture">Picture</string>
     <string name="available_at">Available at:</string>
     <string name="price_lbl">Price:</string>
+    <string name="price_add_lbl">Price [€]:</string>
     <string name="quantity_lbl">Quantity:</string>
+    <string name="quantity_add_lbl">Quantity [kg]:</string>
     <string name="strength">Strength:</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
@@ -61,7 +63,7 @@
     <string name="coffee_name" >Name:</string>
     <string name="add_picture" >Add Picture</string>
     <string name="Add_coffee">Add Coffee</string>
-    <string name="mandatory_field">Mandatory Field</string>
+    <string name="mandatory_field">Mandatory Field missing</string>
 
 
 

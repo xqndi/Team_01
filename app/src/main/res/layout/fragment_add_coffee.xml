@@ -38,6 +38,7 @@
                     android:id="@+id/coffee_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:ems="10"
                     android:inputType="textPersonName" />
             </TableRow>
@@ -68,6 +69,7 @@
                     android:id="@+id/coffee_shop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:ems="10"
                     android:inputType="textPersonName" />
             </TableRow>
@@ -78,12 +80,13 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/price_lbl" />
+                    android:text="@string/price_add_lbl" />
 
                 <EditText
                     android:id="@+id/coffee_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:ems="10"
                     android:inputType="numberDecimal" />
 
@@ -95,12 +98,13 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/quantity_lbl" />
+                    android:text="@string/quantity_add_lbl" />
 
                 <EditText
                     android:id="@+id/coffee_qty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:ems="10"
                     android:inputType="numberDecimal" />
             </TableRow>
