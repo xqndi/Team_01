@@ -18,7 +18,6 @@ import at.tu.graz.coffee.R
 import com.stfalcon.frescoimageviewer.ImageViewer
 
 import at.tu.graz.coffee.model.Coffee
-import at.tu.graz.coffee.ui.home.HomeViewModelFactory
 
 class CoffeeDetailFragment : Fragment() {
     private val viewModel: CoffeeDetailViewModel by viewModels {
