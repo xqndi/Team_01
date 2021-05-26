@@ -51,7 +51,7 @@ class FilterResultAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapte
         val viewholder = homeRow.tag as ViewHolderPattern
         viewholder.nameTextView.text = mCoffeeList[position].name
 
-        viewholder.ratingTextView.text = mCoffeeList[position].evaluationTotal.toString()
+        viewholder.ratingTextView.text = String.format("%.1f", mCoffeeList[position].evaluationTotal)
 
         viewholder.imageView.setImageResource(mContext.resources.getIdentifier(mCoffeeList[position].image,
             "drawable", mContext.packageName))
