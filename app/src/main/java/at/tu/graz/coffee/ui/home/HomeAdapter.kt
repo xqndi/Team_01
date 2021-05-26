@@ -37,7 +37,7 @@ class HomeAdapter : ListAdapter<CoffeeWithReviews, HomeAdapter.HomeViewHolder>(C
             }
 
             nameTextView.text = coffee.name
-            ratingTextView.text = coffee.evaluationTotal.toString()
+            ratingTextView.text = String.format("%.1f", coffee.evaluationTotal)
             imageView.setImageResource(itemView.resources.getIdentifier(coffee.image,
                 "drawable", itemView.context.packageName))
             ratingBar.rating = coffee.evaluationTotal.toFloat()

@@ -1,6 +1,7 @@
 package at.tu.graz.coffee.ui.coffee_detail
 
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
+import com.stfalcon.frescoimageviewer.ImageViewer
+
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.ui.home.HomeViewModelFactory
 
@@ -43,10 +46,22 @@ class CoffeeDetailFragment : Fragment() {
     }
 
     private fun setData(coffee: Coffee, view: View, res: Resources) {
-        val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
-        imgCoffee?.setImageResource(resources.getIdentifier(coffee.image,
-            "drawable", activity?.packageName))
+        val imageRes = resources.getIdentifier(coffee.image,
+            "drawable", activity?.packageName)
 
+        val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
+        imgCoffee?.setImageResource(imageRes)
+
+        val path = Uri.parse("android.resource://at.tu.graz.coffee/" + imageRes)
+
+        val uri: MutableList<Uri> = ArrayList<Uri>()
+        uri.add(path)
+
+        imgCoffee.setOnClickListener{
+            ImageViewer.Builder(context, uri)
+                .setStartPosition(0)
+                .show()
+        }
         val name = view.findViewById<TextView>(R.id.txt_coffee_name)
         name.text = coffee.name
 
