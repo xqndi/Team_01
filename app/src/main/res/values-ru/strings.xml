@@ -20,7 +20,7 @@
 
     <string name="details">Подробности</string>
     <string name="price">%.2f €</string>
-    <string name="quantity">%.2f g</string>
+    <string name="quantity">%.2f kg</string>
     <string name="availability">Доступность:</string>
     <string name="cost">Расходы:</string>
     <string name="taste">Вкус:</string>
@@ -58,11 +58,9 @@
     <string name="po_name">Бурим Врелла</string>
     <string name="Product_Owner">Владелец продукта</string>
     <string name="contact">контакт</string>
-    <string name="name">Кофе-Имя</string>
-    <string name="shop">Магазин</string>
-    <string name="Quantity">Количество</string>
-    <string name="Additional_info">Дополнительная информация</string>
+    <string name="coffee_name">Кофе-Имя</string>
     <string name="Add_coffee">Добавить кофе</string>
     <string name="mandatory_field">Обязательное поле</string>
+    <string name="add_picture">Добавить картинку</string>
 
 </resources>
