@@ -15,6 +15,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.R
 import com.stfalcon.frescoimageviewer.ImageViewer
+import kotlinx.android.synthetic.main.fragment_add_coffee.*
 
 
 class CoffeeDetailFragment : Fragment() {
@@ -40,9 +41,15 @@ class CoffeeDetailFragment : Fragment() {
             "drawable", activity?.packageName)
 
         val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
-        imgCoffee?.setImageResource(imageRes)
+        var path: Uri
 
-        val path = Uri.parse("android.resource://at.tu.graz.coffee/" + imageRes)
+        if(imageRes != 0) {
+            imgCoffee?.setImageResource(imageRes)
+            path = Uri.parse("android.resource://at.tu.graz.coffee/" + imageRes)
+        } else {
+            path = Uri.parse(coffee.image)
+            imgCoffee?.setImageURI(path)
+        }
 
         val uri: MutableList<Uri> = ArrayList<Uri>()
         uri.add(path)
