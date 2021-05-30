@@ -2,7 +2,7 @@ package at.tu.graz.coffee.model
 
 import junit.framework.TestCase
 
-class CoffeeTest : TestCase() {
+class CoffeeWithReviewTest : TestCase() {
 
     private val reviews: List<Review> = listOf(
         Review(1, 2, 10, "Just a comment", 1),
