@@ -2,6 +2,8 @@ package at.tu.graz.coffee.ui.add_coffee
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.content.Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION
+import android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -95,9 +97,11 @@ class AddCoffeeFragment : Fragment() {
 
         button_addPicture.setOnClickListener {
             val phonePictures = Intent(
-                Intent.ACTION_PICK,
+                Intent.ACTION_OPEN_DOCUMENT,
                 MediaStore.Images.Media.INTERNAL_CONTENT_URI
             )
+            phonePictures.addFlags(FLAG_GRANT_READ_URI_PERMISSION)
+            phonePictures.addFlags(FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
             startActivityForResult(phonePictures, pictureSelector)
         }
 
@@ -146,6 +150,10 @@ class AddCoffeeFragment : Fragment() {
             if (outcomePart == RESULT_OK) {
                 uriPicture = info?.data
                 imageView.setImageURI(uriPicture)
+
+                val contentResolver = requireContext().contentResolver
+                val takeFlags: Int = FLAG_GRANT_READ_URI_PERMISSION
+                contentResolver.takePersistableUriPermission(uriPicture!!, takeFlags)
 
                 val uri: MutableList<Uri> = ArrayList<Uri>()
                 uri.add(uriPicture!!)
