@@ -18,7 +18,6 @@ class CoffeeRepository(private val coffeeDAO: CoffeeDAO, private val reviewDAO: 
         return coffeeDAO.getAllByIds(ids)
     }
 
-    // FIXME: 30.05.21  
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(coffee: Coffee) {
