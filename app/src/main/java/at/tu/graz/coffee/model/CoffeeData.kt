@@ -9,6 +9,10 @@ object CoffeeData {
 
     }
 
+    /*fun addCoffee(coffee: Coffee) {
+        coffees.add(coffee)
+    }*/
+
     /*fun getCoffees(context: Context?): MutableLiveData<List<CoffeeWithReviews>>? {
         //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
         return null // coffeeDAO.getAll()
