@@ -117,14 +117,14 @@ class AddCoffeeFragment : Fragment() {
     }
 
     fun addCoffee(view: View) {
-        val coffee = Coffee(1234, coffee_name.text.toString(), coffee_price.text.toString().toDouble(),
+        /*val coffee = Coffee(ull1234, coffee_name.text.toString(), coffee_price.text.toString().toDouble(),
             coffee_shop.text.toString(), spinner_type.selectedItem as CoffeeType, coffee_qty.text.toString().toDouble(),
             coffee_strength.values[0].toInt(), txt_additional_information.text.toString(), uriPicture.toString())
 
         CoffeeData.addCoffee(coffee)
 
         val action = AddCoffeeFragmentDirections.actionOpenHome()
-        Navigation.findNavController(view).navigate(action)
+        Navigation.findNavController(view).navigate(action)*/
 
         Toast.makeText(activity,R.string.coffee_added, Toast.LENGTH_SHORT).show()
     }

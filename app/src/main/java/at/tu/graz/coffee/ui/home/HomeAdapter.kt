@@ -23,6 +23,7 @@ class HomeAdapter : ListAdapter<CoffeeWithReviews, HomeAdapter.HomeViewHolder>(C
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val current = getItem(position)
+        current.calculateNewEvaluation()
         holder.bind(current.coffee)
     }
 
@@ -40,16 +41,14 @@ class HomeAdapter : ListAdapter<CoffeeWithReviews, HomeAdapter.HomeViewHolder>(C
 
             nameTextView.text = coffee.name
             ratingTextView.text = String.format("%.1f", coffee.evaluationTotal)
-            imageView.setImageResource(itemView.resources.getIdentifier(coffee.image,
-                "drawable", itemView.context.packageName))
 
-            val imageRes = mContext.resources.getIdentifier(mCoffeeList[position].image, "drawable", mContext.packageName)
+            val imageRes = itemView.resources.getIdentifier(coffee.image, "drawable", itemView.context.packageName)
 
             if(imageRes != 0) {
-                viewholder.imageView.setImageResource(imageRes)
+                imageView.setImageResource(imageRes)
             } else {
-                val uri = Uri.parse(mCoffeeList[position].image)
-                viewholder.imageView.setImageURI(uri)
+                val uri = Uri.parse(coffee.image)
+                imageView.setImageURI(uri)
             }
 
             ratingBar.rating = coffee.evaluationTotal.toFloat()
