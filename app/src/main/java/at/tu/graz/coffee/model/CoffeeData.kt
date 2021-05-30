@@ -4,6 +4,33 @@ import androidx.lifecycle.MutableLiveData
 import at.tu.graz.coffee.controller.AppDatabase
 
 object CoffeeData {
+
+    fun storeCoffeeInDatabase(){
+
+    }
+
+    /*fun addCoffee(coffee: Coffee) {
+        coffees.add(coffee)
+    }*/
+
+    /*fun getCoffees(context: Context?): MutableLiveData<List<CoffeeWithReviews>>? {
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+        return null // coffeeDAO.getAll()
+    }
+
+    fun getCoffee(id: Int, context: Context?) : MutableLiveData<CoffeeWithReviews>? {
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+
+        return null //coffeeDAO.getById(id)
+    }
+
+    fun getReviews(id: Int, context: Context?) : List<Review>?
+    {
+        //val coffeeDAO = AppDatabase.getCoffeeInstance(context!!)
+
+        return null //coffeeDAO.getById(id).value?.reviews
+    }*/
+
     fun getCoffeeList(idArray: IntArray?) : MutableList<Coffee> {
         val coffeeList: MutableList<Coffee> = mutableListOf()
 
@@ -42,11 +69,21 @@ object CoffeeData {
 //                it.evaluationAvailability >= rangeAvailability[0] &&
 //                it.evaluationAvailability <= rangeAvailability[1] &&
 //                (it.storeToBuyFrom == selectedStore || selectedStore == "") &&
-//                (it.name.contains(searchText, ignoreCase = true) || searchText == "")){
+//                (it.name.contains(searchText, ignoreCase = true) || searchText == "" ||
+//                        checkReviews(it, searchText))){
 //
 //                filteredCoffees.add(it.coffeeId)
 //            }
 //        }
         return filteredCoffees
+    }
+
+    fun checkReviews(coffee: Coffee, searchText: String) : Boolean {
+        /*coffee.reviews.forEach{
+            if(it.comment.contains(searchText, ignoreCase = true)) {
+                return true
+            }
+        }*/
+        return false
     }
 }

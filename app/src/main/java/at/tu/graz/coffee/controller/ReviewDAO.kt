@@ -1,10 +1,8 @@
 package at.tu.graz.coffee.controller
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import at.tu.graz.coffee.model.Review
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ReviewDAO {

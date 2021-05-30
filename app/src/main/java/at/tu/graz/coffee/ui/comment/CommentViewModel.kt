@@ -1,5 +1,6 @@
 package at.tu.graz.coffee.ui.comment
 
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,8 +15,8 @@ class CommentViewModel(private val repository: CoffeeRepository) : ViewModel() {
         return repository.getCoffee(id).asLiveData()
     }
 
-    suspend fun insertReviewForCoffee(coffeeWithReviews: CoffeeWithReviews, newReviews: List<Review>) {
-        return repository.insertReview(coffeeWithReviews, newReviews)
+    suspend fun insertReviewForCoffee(newReviews: List<Review>) {
+        return repository.insertReview(newReviews)
     }
 }
 

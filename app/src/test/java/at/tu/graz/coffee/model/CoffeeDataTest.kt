@@ -7,6 +7,7 @@ class CoffeeDataTest : TestCase() {
         assertEquals(true, true)
     }
 
+
 // FIXME: 26.05.21 Uncomment this once the functions used in here are fixed
 //    fun testGetStoresOfAllCoffees() {
 //        val stores = CoffeeData.getStoresOfAllCoffees()

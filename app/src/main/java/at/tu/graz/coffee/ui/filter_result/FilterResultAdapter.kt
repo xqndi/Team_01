@@ -1,6 +1,7 @@
 package at.tu.graz.coffee.ui.filter_result
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,10 +52,16 @@ class FilterResultAdapter(context: Context, coffeeList:List<Coffee>): BaseAdapte
         val viewholder = homeRow.tag as ViewHolderPattern
         viewholder.nameTextView.text = mCoffeeList[position].name
 
-        viewholder.ratingTextView.text = mCoffeeList[position].evaluationTotal.toString()
+        viewholder.ratingTextView.text = String.format("%.1f", mCoffeeList[position].evaluationTotal)
 
-        viewholder.imageView.setImageResource(mContext.resources.getIdentifier(mCoffeeList[position].image,
-            "drawable", mContext.packageName))
+        val imageRes = mContext.resources.getIdentifier(mCoffeeList[position].image, "drawable", mContext.packageName)
+
+        if(imageRes != 0) {
+            viewholder.imageView.setImageResource(imageRes)
+        } else {
+            val uri = Uri.parse(mCoffeeList[position].image)
+            viewholder.imageView.setImageURI(uri)
+        }
 
         viewholder.ratingBar.rating = mCoffeeList[position].evaluationTotal.toFloat()
         return homeRow

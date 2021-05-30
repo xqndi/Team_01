@@ -1,10 +1,10 @@
-package at.tu.graz.coffee.ui.gallery
+package at.tu.graz.coffee.ui.add_coffee
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class AddCoffeeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
 

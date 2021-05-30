@@ -1,5 +1,7 @@
 package at.tu.graz.coffee.ui.home
 
+import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,7 @@ class HomeAdapter : ListAdapter<CoffeeWithReviews, HomeAdapter.HomeViewHolder>(C
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val current = getItem(position)
+        current.calculateNewEvaluation()
         holder.bind(current.coffee)
     }
 
@@ -37,9 +40,17 @@ class HomeAdapter : ListAdapter<CoffeeWithReviews, HomeAdapter.HomeViewHolder>(C
             }
 
             nameTextView.text = coffee.name
-            ratingTextView.text = coffee.evaluationTotal.toString()
-            imageView.setImageResource(itemView.resources.getIdentifier(coffee.image,
-                "drawable", itemView.context.packageName))
+            ratingTextView.text = String.format("%.1f", coffee.evaluationTotal)
+
+            val imageRes = itemView.resources.getIdentifier(coffee.image, "drawable", itemView.context.packageName)
+
+            if(imageRes != 0) {
+                imageView.setImageResource(imageRes)
+            } else {
+                val uri = Uri.parse(coffee.image)
+                imageView.setImageURI(uri)
+            }
+
             ratingBar.rating = coffee.evaluationTotal.toFloat()
         }
 

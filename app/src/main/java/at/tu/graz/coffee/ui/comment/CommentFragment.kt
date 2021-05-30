@@ -51,7 +51,7 @@ class CommentFragment : Fragment() {
 
         val listView: ListView = view.findViewById(R.id.comment_listview)
 
-        val adapter = CommentAdapter(requireContext(), coffeeWithReviews.reviews.toMutableList())
+        val adapter = CommentAdapter(view.context, coffeeWithReviews.reviews.toMutableList())
         listView.adapter = adapter
 
         setListViewHeightBasedOnItems(listView)
@@ -78,7 +78,7 @@ class CommentFragment : Fragment() {
             )
 
             GlobalScope.launch {
-                viewModel.insertReviewForCoffee(coffeeWithReviews, listOf(newReview))
+                viewModel.insertReviewForCoffee(listOf(newReview))
             }
 
             listView.adapter = CommentAdapter(
@@ -87,9 +87,9 @@ class CommentFragment : Fragment() {
             )
 
             text.text.clear()
-            costSlider.setValues(0.0F, 0.0F)
-            tasteSlider.setValues(0.0F, 0.0F)
-            availabilitySlider.setValues(0.0F, 0.0F)
+            costSlider.setValues(0.0F)
+            tasteSlider.setValues(0.0F)
+            availabilitySlider.setValues(0.0F)
 
             Toast.makeText(activity, "Comment added", Toast.LENGTH_SHORT).show()
         }

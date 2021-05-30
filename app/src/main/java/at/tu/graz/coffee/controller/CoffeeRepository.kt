@@ -1,6 +1,10 @@
 package at.tu.graz.coffee.controller
 
+import android.app.Activity
+import android.content.Context
 import androidx.annotation.WorkerThread
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.asLiveData
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
@@ -22,30 +26,7 @@ class CoffeeRepository(private val coffeeDAO: CoffeeDAO, private val reviewDAO: 
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insertReview(coffee: CoffeeWithReviews, reviews: List<Review>) {
+    suspend fun insertReview(reviews: List<Review>) {
         reviewDAO.insertAll(reviews)
-        calculateNewEvaluation(coffee)
-    }
-
-    fun calculateNewEvaluation(coffee: CoffeeWithReviews) {
-        var evaluationTaste = 0.0
-        var evaluationCost = 0.0
-        var evaluationAvailability = 0.0
-        val reviews = coffee.reviews
-
-        for (review in reviews) {
-            evaluationTaste += review.taste
-            evaluationCost += review.cost
-            evaluationAvailability += review.availability
-        }
-
-        coffee.coffee.evaluationTaste = evaluationTaste / reviews.size
-        coffee.coffee.evaluationCost = evaluationCost / reviews.size
-        coffee.coffee.evaluationAvailability = evaluationAvailability / reviews.size
-
-        coffee.coffee.evaluationTotal =
-            (coffee.coffee.evaluationTaste + coffee.coffee.evaluationCost + coffee.coffee.evaluationAvailability) / 3.0
-
-        coffeeDAO.updateCoffee(coffee.coffee)
     }
 }

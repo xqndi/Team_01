@@ -1,6 +1,7 @@
 package at.tu.graz.coffee.ui.coffee_detail
 
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,9 @@ import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Coffee
+import com.stfalcon.frescoimageviewer.ImageViewer
+import kotlinx.android.synthetic.main.fragment_add_coffee.*
+import java.lang.Exception
 
 class CoffeeDetailFragment : Fragment() {
     private val viewModel: CoffeeDetailViewModel by viewModels {
@@ -37,15 +41,41 @@ class CoffeeDetailFragment : Fragment() {
         val res: Resources = resources
 
         viewModel.getCoffee(args.coffeeId).observe(requireActivity()) { coffee ->
+            coffee.calculateNewEvaluation()
             setData(coffee.coffee, view, res)
         }
     }
 
     private fun setData(coffee: Coffee, view: View, res: Resources) {
-        val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
-        imgCoffee?.setImageResource(resources.getIdentifier(coffee.image,
-            "drawable", activity?.packageName))
+        val imageRes: Int
+        try {
+            imageRes = resources.getIdentifier(
+                coffee.image,
+                "drawable", activity?.packageName
+            )
+        } catch (ex: Exception) {
+            return
+        }
 
+        val imgCoffee = view.findViewById<ImageView>(R.id.img_coffee)
+        val path: Uri
+
+        if (imageRes != 0) {
+            imgCoffee?.setImageResource(imageRes)
+            path = Uri.parse("android.resource://at.tu.graz.coffee/" + imageRes)
+        } else {
+            path = Uri.parse(coffee.image)
+            imgCoffee?.setImageURI(path)
+        }
+
+        val uri: MutableList<Uri> = ArrayList<Uri>()
+        uri.add(path)
+
+        imgCoffee.setOnClickListener {
+            ImageViewer.Builder(context, uri)
+                .setStartPosition(0)
+                .show()
+        }
         val name = view.findViewById<TextView>(R.id.txt_coffee_name)
         name.text = coffee.name
 
@@ -80,20 +110,26 @@ class CoffeeDetailFragment : Fragment() {
     }
 
     private fun setEvaluation(value: Double, type: String) {
-        for(i in 1..value.toInt()) {
-            val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
-                "img_" + type + "_star_$i", "id", activity?.packageName))
+        for (i in 1..value.toInt()) {
+            val imgStar = view?.findViewById<ImageView>(
+                resources.getIdentifier(
+                    "img_" + type + "_star_$i", "id", activity?.packageName
+                )
+            )
 
             imgStar?.setImageResource(R.drawable.star_full)
         }
 
-        val imgStar = view?.findViewById<ImageView>(resources.getIdentifier(
-            "img_" + type + "_star_${value.toInt() + 1}", "id", activity?.packageName))
+        val imgStar = view?.findViewById<ImageView>(
+            resources.getIdentifier(
+                "img_" + type + "_star_${value.toInt() + 1}", "id", activity?.packageName
+            )
+        )
 
         val decimal = value - value.toInt()
-        if(decimal in 0.2..0.8) {
+        if (decimal in 0.2..0.8) {
             imgStar?.setImageResource(R.drawable.star_half)
-        } else if(decimal >= 0.8){
+        } else if (decimal >= 0.8) {
             imgStar?.setImageResource(R.drawable.star_full)
         }
     }
