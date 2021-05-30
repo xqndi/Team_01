@@ -16,7 +16,7 @@ class EmailSender : AsyncTask<String?, String?, Void?>() {
         return null
     }
 
-    fun send(to: String?, text: String?) {
+    private fun send(to: String?, text: String?) {
         props["mail.smtp.auth"] = "true"
         props["mail.smtp.starttls.enable"] = "true"
         props["mail.smtp.host"] = "smtp.gmail.com"

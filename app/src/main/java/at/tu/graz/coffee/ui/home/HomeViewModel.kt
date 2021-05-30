@@ -9,10 +9,6 @@ import kotlinx.coroutines.launch
 class HomeViewModel(private val repository: CoffeeRepository) : ViewModel() {
 
     val allCoffees: LiveData<List<CoffeeWithReviews>> = repository.allCoffees.asLiveData()
-
-    /*fun addCoffee(coffee: Coffee) = viewModelScope.launch {
-        repository.insert(coffee)
-    }*/
 }
 
 class HomeViewModelFactory(private val repository: CoffeeRepository) : ViewModelProvider.Factory {

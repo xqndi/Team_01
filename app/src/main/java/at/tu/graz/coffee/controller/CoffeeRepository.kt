@@ -1,10 +1,6 @@
 package at.tu.graz.coffee.controller
 
-import android.app.Activity
-import android.content.Context
 import androidx.annotation.WorkerThread
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.asLiveData
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
@@ -18,6 +14,11 @@ class CoffeeRepository(private val coffeeDAO: CoffeeDAO, private val reviewDAO: 
         return coffeeDAO.getById(id)
     }
 
+    fun getCoffeesByIds(ids: List<Int>): Flow<List<CoffeeWithReviews>> {
+        return coffeeDAO.getAllByIds(ids)
+    }
+
+    // FIXME: 30.05.21  
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(coffee: Coffee) {
@@ -28,5 +29,9 @@ class CoffeeRepository(private val coffeeDAO: CoffeeDAO, private val reviewDAO: 
     @WorkerThread
     suspend fun insertReview(reviews: List<Review>) {
         reviewDAO.insertAll(reviews)
+    }
+
+    fun getStoresOfAllCoffees(): Flow<List<String>> {
+        return coffeeDAO.getStoresOfAllCoffees()
     }
 }

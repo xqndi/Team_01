@@ -23,22 +23,20 @@ interface CoffeeDAO {
     fun updateCoffee(coffee: Coffee): Int
 
     @Transaction
-    fun addCoffeeWithReviews(coffee: Coffee, reviews: List<Review>){
+    fun addCoffeeWithReviews(coffee: Coffee, reviews: List<Review>) {
         val listId = insertCoffee(coffee)
-        reviews.forEach{it.coffeeCreatorId = listId.toInt() }
+        reviews.forEach { it.coffeeCreatorId = listId.toInt() }
         insertReviewList(reviews)
     }
 
     @Insert
     fun insertReviewList(reviews: List<Review>)
 
-    /*
-    @Query("SELECT * FROM coffee WHERE coffeeId IN (:coffeeIds)")
-    fun loadAllByIds(coffeeIds: IntArray): List<Coffee>
+    @Transaction
+    @Query("SELECT * FROM coffee WHERE coffeeId IN (:ids)")
+    fun getAllByIds(ids: List<Int>): Flow<List<CoffeeWithReviews>>
 
-    @Query("SELECT * FROM coffee WHERE name LIKE :name LIMIT 1")
-    fun findByName(name: String): Coffee
-
-    @Insert
-    fun insertAll(vararg coffees: CoffeeWithReviews)*/
+    @Transaction
+    @Query("SELECT store_to_buy_from FROM coffee GROUP BY store_to_buy_from")
+    fun getStoresOfAllCoffees(): Flow<List<String>>
 }

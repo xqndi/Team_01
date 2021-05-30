@@ -14,13 +14,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import at.tu.graz.coffee.R
-import at.tu.graz.coffee.model.Coffee
-import at.tu.graz.coffee.model.CoffeeData
 import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
-import kotlinx.android.synthetic.main.fragment_filter_result.*
 import com.stfalcon.frescoimageviewer.ImageViewer
 
 

@@ -93,7 +93,7 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        suspend fun createData(coffeeDAO: CoffeeDAO, reviewDAO: ReviewDAO) {
+        fun createData(coffeeDAO: CoffeeDAO, reviewDAO: ReviewDAO) {
             val reviews: List<Review> = listOf(
                 Review(1, 2, 10, "Just a comment", 1),
                 Review(10, 3, 4, "Another comment", 1),
