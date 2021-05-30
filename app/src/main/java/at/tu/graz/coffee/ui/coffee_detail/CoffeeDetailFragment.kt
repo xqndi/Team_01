@@ -19,7 +19,6 @@ import com.stfalcon.frescoimageviewer.ImageViewer
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
 
 import at.tu.graz.coffee.model.Coffee
-import at.tu.graz.coffee.ui.home.HomeViewModelFactory
 
 class CoffeeDetailFragment : Fragment() {
     private val viewModel: CoffeeDetailViewModel by viewModels {
