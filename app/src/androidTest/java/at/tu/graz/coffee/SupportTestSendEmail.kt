@@ -24,7 +24,7 @@ class SupportTestSendEmail {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
+    var mActivityTestRule = (MainActivity::class.java)
 
     @Test
     fun supportTestSendEmail() {

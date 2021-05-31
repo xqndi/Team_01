@@ -1,16 +1,9 @@
 package at.tu.graz.coffee
 
 import android.content.Context
-import android.content.Intent
-import android.content.res.Configuration
-import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -28,12 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    lateinit var localeToBeUsed: Locale
-    private var currentLanguage: String? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setLanguage()
+
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -43,8 +35,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_addCoffee, R.id.nav_filter, R.id.nav_support), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home, R.id.nav_addCoffee, R.id.nav_filter, R.id.nav_support
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -60,40 +55,20 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-
     fun changeToSettings(item: MenuItem) {
-        //TODO: Validation Check if fragment is opened correctly
         val navController = findNavController(R.id.nav_host_fragment)
         navController.navigate(R.id.nav_settings)
     }
 
-    fun onClickApplyButton(view: View) {
-        val b1 : RadioButton = findViewById<RadioButton>(R.id.language_first_radio)
-        val b2 : RadioButton = findViewById<RadioButton>(R.id.language_second_radio)
-        var languageSelector : String = "en"
-        if (b1.isChecked)
-        {
-            changeLanguage(languageSelector)
-        }
-        if (b2.isChecked)
-        {
-            languageSelector = "ru"
-            changeLanguage(languageSelector)
-        }
-    }
-    public fun changeLanguage(languageToSet: String) {
-
+    private fun setLanguage() {
         val usedResource = resources
         val configurationToSet = usedResource.configuration
         val displayMetricsToSet = usedResource.displayMetrics
 
-        localeToBeUsed = Locale(languageToSet)
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        val savedLanguage = sharedPref!!.getString(getString(R.string.saved_language), "en")
 
-        configurationToSet.locale = localeToBeUsed
+        configurationToSet.setLocale(Locale(savedLanguage!!))
         usedResource.updateConfiguration(configurationToSet, displayMetricsToSet)
-        val currentUpdater = Intent(this, MainActivity::class.java)
-        currentUpdater.putExtra(currentLanguage, languageToSet)
-        startActivity(currentUpdater)
     }
 }
-

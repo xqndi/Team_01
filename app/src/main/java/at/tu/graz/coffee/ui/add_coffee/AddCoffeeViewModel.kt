@@ -1,13 +1,22 @@
 package at.tu.graz.coffee.ui.add_coffee
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import at.tu.graz.coffee.controller.CoffeeRepository
+import at.tu.graz.coffee.model.Coffee
 
-class AddCoffeeViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-
+class AddCoffeeViewModel(private val repository: CoffeeRepository) : ViewModel() {
+    suspend fun addCoffee(coffee: Coffee) {
+        repository.insert(coffee)
     }
-    val text: LiveData<String> = _text
+}
+
+class AddCoffeeViewModelFactory(private val repository: CoffeeRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(AddCoffeeViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return AddCoffeeViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }
