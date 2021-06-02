@@ -49,6 +49,7 @@
     <string name="settings">Settings</string>
     <string name="FirstLanguage">English</string>
     <string name="SecondLanguage">Russian</string>
+    <string name="ThirdLanguage">Albanian</string>
     <string name="LanguageApplyButton">Apply</string>
     <string name="filter_result">Filter Result</string>
     <string name="search">Search:</string>
