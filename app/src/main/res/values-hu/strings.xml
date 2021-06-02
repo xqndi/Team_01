@@ -60,4 +60,5 @@
     <string name="mandatory_field">Kötelező mező hiányzik</string>
     <string name="coffee_added">Kávét adtak hozzá</string>
     <string name="hungarian">Magyar</string>
+    <string name="ThirdLanguage">albán</string>
 </resources>
