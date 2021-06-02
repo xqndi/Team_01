@@ -7,7 +7,8 @@
         <item
             android:id="@+id/nav_home"
             android:textColor="@color/normal_brown"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"
+            />
         <item
             android:id="@+id/nav_addCoffee"
             android:textColor="@color/normal_brown"
@@ -22,6 +23,5 @@
             android:id="@+id/nav_support"
             android:textColor="@color/normal_brown"
             android:title="@string/menu_support" />
-
     </group>
 </menu>

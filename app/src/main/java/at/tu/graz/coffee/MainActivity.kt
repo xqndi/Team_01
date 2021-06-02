@@ -1,18 +1,17 @@
 package at.tu.graz.coffee
 
-import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
-import android.content.res.Resources
-import android.os.Build
+import android.content.res.ColorStateList
+import android.hardware.camera2.params.ColorSpaceTransform
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Typeface
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,6 +20,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import java.util.*
+import kotlin.collections.AbstractCollection
 
 
 @Suppress("DEPRECATION")
@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        toolbar.setTitleTextColor(getColor(R.color.gray))
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
