@@ -53,7 +53,7 @@
     <string name="empty_list">Кофе не обнаружен.</string>
 
     <string name="tel_nr">Телефон</string>
-    <string name="tel_nrPO">0660 9246052</string>
+    <string name="tel_nrPO">0664 9246052</string>
     <string name="email">Адрес электронной почты</string>
     <string name="po_name">Бурим Врелла</string>
     <string name="Product_Owner">Владелец продукта</string>
@@ -65,5 +65,6 @@
     <string name="price_add_lbl">Цена [€]:</string>
     <string name="quantity_add_lbl">Количество [кг]:</string>
     <string name="coffee_added">Добавление кофе</string>
+    <string name="hungarian">венгерский язык</string>
 
 </resources>
