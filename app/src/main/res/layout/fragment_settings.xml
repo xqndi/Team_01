@@ -52,7 +52,7 @@
             android:text="@string/hungarian"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radio_btn_russian"
+            app:layout_constraintTop_toBottomOf="@+id/radio_btn_albanian"
             app:layout_constraintVertical_bias="0.006" />
 
 
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintTop_toTopOf="@+id/radio_group_language"
+        app:layout_constraintVertical_bias="0.396" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
