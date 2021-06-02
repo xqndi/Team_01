@@ -29,6 +29,9 @@ interface CoffeeDAO {
         insertReviewList(reviews)
     }
 
+    @Delete
+    fun delete(coffee: Coffee)
+
     @Insert
     fun insertReviewList(reviews: List<Review>)
 
@@ -39,4 +42,7 @@ interface CoffeeDAO {
     @Transaction
     @Query("SELECT store_to_buy_from FROM coffee GROUP BY store_to_buy_from")
     fun getStoresOfAllCoffees(): Flow<List<String>>
+
+    @Query("DELETE FROM coffee")
+    fun purgeTable()
 }
