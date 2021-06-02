@@ -66,5 +66,6 @@
     <string name="Add_coffee">ngarkoni një kafe</string>
     <string name="mandatory_field">Kontributi i detyrueshëm mungon</string>
     <string name="coffee_added">Kafe shtuar</string>
+    <string name="hungarian">Hungarez</string>
 
 </resources>
