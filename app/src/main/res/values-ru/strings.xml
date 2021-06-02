@@ -20,12 +20,13 @@
 
     <string name="details">Подробности</string>
     <string name="price">%.2f €</string>
-    <string name="quantity">%.2f g</string>
+    <string name="quantity">%.2f kg</string>
     <string name="availability">Доступность:</string>
     <string name="cost">Расходы:</string>
     <string name="taste">Вкус:</string>
     <string name="total">Общее:</string>
     <string name="coffee_type">Тип кофе:</string>
+    <string name="picture">картина</string>
     <string name="available_at">Доступны на:</string>
     <string name="price_lbl">Цена:</string>
     <string name="quantity_lbl">Количество:</string>
@@ -46,6 +47,7 @@
     <string name="settings">Настройки</string>
     <string name="FirstLanguage">английский</string>
     <string name="SecondLanguage">русский</string>
+    <string name="ThirdLanguage">албанский</string>
     <string name="LanguageApplyButton">Применять</string>
     <string name="filter_result">Результат фильтра</string>
     <string name="search">Поиск:</string>
@@ -57,11 +59,12 @@
     <string name="po_name">Бурим Врелла</string>
     <string name="Product_Owner">Владелец продукта</string>
     <string name="contact">контакт</string>
-    <string name="name">Кофе-Имя</string>
-    <string name="shop">Магазин</string>
-    <string name="Quantity">Количество</string>
-    <string name="Additional_info">Дополнительная информация</string>
+    <string name="coffee_name">Кофе-Имя</string>
     <string name="Add_coffee">Добавить кофе</string>
-    <string name="mandatory_field">Обязательное поле</string>
+    <string name="mandatory_field">Обязательное поле отсутствует</string>
+    <string name="add_picture">Добавить картинку</string>
+    <string name="price_add_lbl">Цена [€]:</string>
+    <string name="quantity_add_lbl">Количество [кг]:</string>
+    <string name="coffee_added">Добавление кофе</string>
 
 </resources>

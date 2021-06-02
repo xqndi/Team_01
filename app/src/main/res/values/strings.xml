@@ -26,9 +26,12 @@
     <string name="taste">Taste:</string>
     <string name="total">Total:</string>
     <string name="coffee_type">Coffee type:</string>
+    <string name="picture">Picture</string>
     <string name="available_at">Available at:</string>
     <string name="price_lbl">Price:</string>
+    <string name="price_add_lbl">Price [€]:</string>
     <string name="quantity_lbl">Quantity:</string>
+    <string name="quantity_add_lbl">Quantity [kg]:</string>
     <string name="strength">Strength:</string>
     <string name="additional_information">Additional information:</string>
     <string name="reviews_btn">Reviews</string>
@@ -46,22 +49,24 @@
     <string name="settings">Settings</string>
     <string name="FirstLanguage">English</string>
     <string name="SecondLanguage">Russian</string>
+    <string name="ThirdLanguage">Albanian</string>
     <string name="LanguageApplyButton">Apply</string>
     <string name="filter_result">Filter Result</string>
     <string name="search">Search:</string>
     <string name="empty_list">No coffee has been found.</string>
 
     <string name="tel_nr" >Telefon</string>
-    <string name="tel_nrPO" translatable="false">0664 9246052</string>
-    <string name="email" translatable="false">E-Mail Address</string>
-    <string name="po_name" translatable="false">Burim Vrella</string>
+    <string name="tel_nrPO">0664 9246052</string>
+    <string name="email">E-Mail Address</string>
+    <string name="po_name">Burim Vrella</string>
     <string name="Product_Owner" >Product Owner</string>
     <string name="contact" >Contact</string>
-    <string name="name">Coffee-Name</string>
-    <string name="shop">Shop</string>
-    <string name="Quantity">Quantity</string>
-    <string name="Additional_info">Additional Info</string>
+    <string name="coffee_name" >Name:</string>
+    <string name="add_picture" >Add Picture</string>
     <string name="Add_coffee">Add Coffee</string>
-    <string name="mandatory_field">Mandatory Fields</string>
+    <string name="mandatory_field">Mandatory Field missing</string>
+    <string name="coffee_added">Coffee added</string>
+    <string name="saved_language" translatable="false">language</string>
+
 
 </resources>
