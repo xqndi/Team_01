@@ -47,7 +47,6 @@ class CoffeeDatabaseTest : TestCase() {
             testScope
         )
         db = AppDatabase.getDb()!!
-
     }
 
 
