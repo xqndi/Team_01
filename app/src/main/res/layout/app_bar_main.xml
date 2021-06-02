@@ -15,8 +15,8 @@
         android:theme="@style/Theme.AppCompat.DayNight">
 
         <androidx.appcompat.widget.Toolbar
-            app:titleTextAppearance="bold"
             android:id="@+id/toolbar"
+            style="@style/Title"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/dark_brown"
