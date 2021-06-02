@@ -14,4 +14,7 @@ interface ReviewDAO {
 
     @Delete
     fun delete(reviews: Review)
+
+    @Query("DELETE FROM review")
+    fun purgeTable()
 }
