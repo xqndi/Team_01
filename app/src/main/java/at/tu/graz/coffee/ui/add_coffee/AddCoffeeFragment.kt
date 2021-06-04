@@ -20,6 +20,7 @@ import androidx.navigation.Navigation
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.businessLogic.CoffeeTypeHelper.Companion.getCoffeeTypeStringList
+import at.tu.graz.coffee.businessLogic.CoffeeTypeHelper.Companion.getEnumTypeFromCoffeeTypeName
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
@@ -120,11 +121,15 @@ class AddCoffeeFragment : Fragment() {
     }
 
     private fun addCoffee(view: View) {
+        val coffeeType = getEnumTypeFromCoffeeTypeName(requireContext(),
+            spinner_type.selectedItem as String
+        )
+
         val coffee = Coffee(
             coffee_name.text.toString(),
             coffee_price.text.toString().toDouble(),
             coffee_shop.text.toString(),
-            spinner_type.selectedItem as CoffeeType,
+            coffeeType,
             coffee_qty.text.toString().toDouble(),
             coffee_strength.values[0].toInt(),
             txt_additional_information.text.toString(),

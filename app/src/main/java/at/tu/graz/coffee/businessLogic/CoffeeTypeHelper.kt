@@ -16,11 +16,21 @@ class CoffeeTypeHelper {
         }
 
         fun getCoffeeTypeName(context: Context, coffeeType: CoffeeType): String {
-            when (coffeeType) {
-                CoffeeType.NONE -> return context.getString(R.string.none)
-                CoffeeType.ARABICA -> return context.getString(R.string.arabica)
-                CoffeeType.MIXED -> return context.getString(R.string.mixed)
-                CoffeeType.ROBUSTA -> return context.getString(R.string.robusta)
+            return when (coffeeType) {
+                CoffeeType.NONE -> context.getString(R.string.none)
+                CoffeeType.ARABICA -> context.getString(R.string.arabica)
+                CoffeeType.MIXED -> context.getString(R.string.mixed)
+                CoffeeType.ROBUSTA -> context.getString(R.string.robusta)
+            }
+        }
+
+        fun getEnumTypeFromCoffeeTypeName(context: Context, coffeeTypeName: String): CoffeeType {
+            return when (coffeeTypeName) {
+                context.getString(R.string.none) -> CoffeeType.NONE
+                context.getString(R.string.arabica) -> CoffeeType.ARABICA
+                context.getString(R.string.mixed) -> CoffeeType.MIXED
+                context.getString(R.string.robusta) -> CoffeeType.ROBUSTA
+                else -> CoffeeType.NONE
             }
         }
     }
