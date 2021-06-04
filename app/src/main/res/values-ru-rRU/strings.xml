@@ -54,7 +54,7 @@
     <string name="quantity_add_lbl">Количество [кг]:</string>
     <string name="coffee_added">Добавление кофе</string>
     <string name="hungarian">венгерский язык</string>
-    <string name="quantity" translatable="false">%.2f кг</string>
+    <string name="quantity">%.2f кг</string>
     <string name="comment_added">Комментарий добавлен</string>
     <string name="none">Hи один</string>
     <string name="arabica">Арабика</string>
