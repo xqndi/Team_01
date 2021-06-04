@@ -56,4 +56,8 @@
     <string name="ThirdLanguage">albán</string>
     <string name="quantity">%.2f kg</string>
     <string name="comment_added">Hozzáadott megjegyzés</string>
+    <string name="none">Semmi</string>
+    <string name="arabica">Arabica</string>
+    <string name="robusta">Robusta</string>
+    <string name="mixed">Vegyes</string>
 </resources>

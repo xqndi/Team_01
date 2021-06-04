@@ -15,6 +15,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
+import at.tu.graz.coffee.businessLogic.CoffeeTypeHelper.Companion.getCoffeeTypeName
 import at.tu.graz.coffee.model.Coffee
 import com.stfalcon.frescoimageviewer.ImageViewer
 import java.lang.Exception
@@ -84,7 +85,7 @@ class CoffeeDetailFragment : Fragment() {
         setEvaluation(coffee.evaluationAvailability, "availability")
 
         val coffeeType = view.findViewById<TextView>(R.id.txt_coffee_type)
-        coffeeType.text = coffee.coffeeType.text
+        coffeeType.text = getCoffeeTypeName(requireContext(), coffee.coffeeType)
 
         val storeToBuyFrom = view.findViewById<TextView>(R.id.txt_store_to_buy_from)
         storeToBuyFrom.text = coffee.storeToBuyFrom
