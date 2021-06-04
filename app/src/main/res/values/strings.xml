@@ -58,11 +58,8 @@
     <string name="saved_language" translatable="false">language</string>
     <string name="hungarian">Hungarian</string>
     <string name="comment_added">Comment added</string>
-
     <string name="none">None</string>
     <string name="arabica">Arabica</string>
     <string name="robusta">Robusta</string>
     <string name="mixed">Mixed</string>
-
-
 </resources>
