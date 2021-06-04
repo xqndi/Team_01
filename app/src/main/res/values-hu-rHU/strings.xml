@@ -2,11 +2,6 @@
 <resources>
     <string name="settings">Beállítások</string>
     <string name="app_name">Kávé</string>
-    <string name="navigation_drawer_open">Nyissa meg a navigációs fiókot</string>
-    <string name="navigation_drawer_close">Zárja be a navigációs fiókot</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigációs fejléc</string>
     <string name="action_settings">Beállítások</string>
     <string name="menu_home">itthon</string>
     <string name="menu_addCoffee">Adja hozzá a kávét</string>
@@ -18,8 +13,6 @@
     <string name="sendEmail">Üzenet küldése</string>
     <string name="emailConfirm">Az e-mail sikeresen elküldve!</string>
     <string name="details">Részletek</string>
-    <string name="price">%.2f €</string>
-    <string name="quantity">%.2f kg</string>
     <string name="availability">Elérhetőség:</string>
     <string name="cost">Költség:</string>
     <string name="taste">Íz:</string>
@@ -61,4 +54,10 @@
     <string name="coffee_added">Kávét adtak hozzá</string>
     <string name="hungarian">Magyar</string>
     <string name="ThirdLanguage">albán</string>
+    <string name="quantity">%.2f kg</string>
+    <string name="comment_added">Hozzáadott megjegyzés</string>
+    <string name="none">Semmi</string>
+    <string name="arabica">Arabica</string>
+    <string name="robusta">Robusta</string>
+    <string name="mixed">Vegyes</string>
 </resources>

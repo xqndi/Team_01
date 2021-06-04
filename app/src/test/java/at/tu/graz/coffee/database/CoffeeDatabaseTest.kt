@@ -1,4 +1,4 @@
-package at.tu.graz.coffee.model
+package at.tu.graz.coffee.database
 
 import androidx.annotation.Nullable
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
@@ -6,9 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.test.platform.app.InstrumentationRegistry
-import at.tu.graz.coffee.controller.AppDatabase
-import at.tu.graz.coffee.controller.CoffeeDAO
-import at.tu.graz.coffee.controller.ReviewDAO
+import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeType
+import at.tu.graz.coffee.model.CoffeeWithReviews
+import at.tu.graz.coffee.model.Review
 import junit.framework.TestCase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -245,5 +246,6 @@ fun <T> getOrAwaitValue(liveData: LiveData<T>): T? {
     }
     liveData.observeForever(observer)
     latch.await(2, TimeUnit.SECONDS)
+    @Suppress("UNCHECKED_CAST")
     return data[0] as T?
 }
