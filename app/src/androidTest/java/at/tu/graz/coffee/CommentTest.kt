@@ -88,48 +88,12 @@ class CommentTest {
 
         val textView = onView(
             allOf(
-                withId(R.id.comment_comment), withText("Comment"),
+                withId(R.id.textView5), withText("Comment"),
                 withParent(withParent(withId(R.id.comment_listview))),
                 isDisplayed()
             )
         )
         textView.check(matches(withText("Comment")))
-
-        val ratingBar = onView(
-            allOf(
-                withId(R.id.comment_taste),
-                withParent(withParent(withId(R.id.comment_listview))),
-                isDisplayed()
-            )
-        )
-        ratingBar.check(matches(isDisplayed()))
-
-        val ratingBar2 = onView(
-            allOf(
-                withId(R.id.comment_cost),
-                withParent(withParent(withId(R.id.comment_listview))),
-                isDisplayed()
-            )
-        )
-        ratingBar2.check(matches(isDisplayed()))
-
-        val ratingBar3 = onView(
-            allOf(
-                withId(R.id.comment_availability),
-                withParent(withParent(withId(R.id.comment_listview))),
-                isDisplayed()
-            )
-        )
-        ratingBar3.check(matches(isDisplayed()))
-
-        val ratingBar4 = onView(
-            allOf(
-                withId(R.id.comment_availability),
-                withParent(withParent(withId(R.id.comment_listview))),
-                isDisplayed()
-            )
-        )
-        ratingBar4.check(matches(isDisplayed()))
     }
 
     private fun childAtPosition(
