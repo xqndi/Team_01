@@ -49,6 +49,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+        menu.getItem(0).setOnMenuItemClickListener {
+            changeToSettings()
+        }
+
         return true
     }
 
@@ -57,9 +62,10 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    fun changeToSettings(item: MenuItem) {
+    private fun changeToSettings(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         navController.navigate(R.id.nav_settings)
+        return true
     }
 
     private fun setLanguage() {

@@ -81,7 +81,7 @@ class AddCoffeeFragment : Fragment() {
                 missingField = true
                 button_addPicture.setBackgroundColor(Color.RED)
             } else {
-                button_addPicture.setBackgroundColor(resources.getColor(R.color.purple_500))
+                button_addPicture.setBackgroundColor(resources.getColor(R.color.purple_500, resources.newTheme()))
             }
 
             if (missingField) {
