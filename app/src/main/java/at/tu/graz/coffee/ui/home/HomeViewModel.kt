@@ -4,7 +4,7 @@ import androidx.lifecycle.*
 import at.tu.graz.coffee.database.CoffeeRepository
 import at.tu.graz.coffee.model.CoffeeWithReviews
 
-class HomeViewModel(private val repository: CoffeeRepository) : ViewModel() {
+class HomeViewModel(repository: CoffeeRepository) : ViewModel() {
 
     val allCoffees: LiveData<List<CoffeeWithReviews>> = repository.allCoffees.asLiveData()
 }
