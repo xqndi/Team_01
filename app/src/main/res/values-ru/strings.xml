@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">Кофе</string>
-    <string name="navigation_drawer_open">Открыть панель навигации</string>
-    <string name="navigation_drawer_close">Закрыть панель навигации</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Заголовок навигации</string>
     <string name="action_settings">Настройки</string>
 
     <string name="menu_home">Дом</string>
@@ -19,8 +14,6 @@
     <string name="emailConfirm">письмо успешно отправлено</string>
 
     <string name="details">Подробности</string>
-    <string name="price">%.2f €</string>
-    <string name="quantity">%.2f kg</string>
     <string name="availability">Доступность:</string>
     <string name="cost">Расходы:</string>
     <string name="taste">Вкус:</string>
@@ -67,5 +60,7 @@
     <string name="quantity_add_lbl">Количество [кг]:</string>
     <string name="coffee_added">Добавление кофе</string>
     <string name="hungarian">венгерский язык</string>
+    <string name="quantity" translatable="false">%.2f кг</string>
+    <string name="comment_added">Комментарий добавлен</string>
 
 </resources>

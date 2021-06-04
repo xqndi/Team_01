@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">Coffee</string>
-    <string name="navigation_drawer_open">Hapni sirtarin e navigimit</string>
-    <string name="navigation_drawer_close">Mbylle sirtarin e navigimit</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Titulli i lundrimit</string>
     <string name="action_settings">Cilësimet</string>
 
     <string name="menu_home">Shtëpi</string>
@@ -19,8 +14,6 @@
     <string name="emailConfirm">Emaili u dërgua me sukses!</string>
 
     <string name="details">Detajet</string>
-    <string name="price">%.2f €</string>
-    <string name="quantity">%.2f kg</string>
     <string name="availability">Disponueshmëria:</string>
     <string name="cost">Kostoja:</string>
     <string name="taste">Shija:</string>
@@ -67,5 +60,7 @@
     <string name="mandatory_field">Kontributi i detyrueshëm mungon</string>
     <string name="coffee_added">Kafe shtuar</string>
     <string name="hungarian">Hungarez</string>
+    <string name="quantity">%.2f kg</string>
+    <string name="comment_added">Komenti u shtua</string>
 
 </resources>

@@ -67,7 +67,7 @@ class CoffeeDetailFragment : Fragment() {
             imgCoffee?.setImageURI(path)
         }
 
-        val uri: MutableList<Uri> = ArrayList<Uri>()
+        val uri: MutableList<Uri> = ArrayList()
         uri.add(path)
 
         imgCoffee.setOnClickListener {

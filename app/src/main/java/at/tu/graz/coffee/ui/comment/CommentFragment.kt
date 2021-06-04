@@ -30,7 +30,7 @@ class CommentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as AppCompatActivity).supportActionBar?.title = "Comments"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.comments)
 
         val root = inflater.inflate(R.layout.fragment_comment, container, false)
 
@@ -91,7 +91,7 @@ class CommentFragment : Fragment() {
             tasteSlider.setValues(0.0F)
             availabilitySlider.setValues(0.0F)
 
-            Toast.makeText(activity, "Comment added", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.comment_added), Toast.LENGTH_SHORT).show()
         }
     }
 
