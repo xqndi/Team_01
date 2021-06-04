@@ -1,6 +1,5 @@
 package at.tu.graz.coffee.ui.comment
 
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

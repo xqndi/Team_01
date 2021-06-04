@@ -17,7 +17,6 @@ import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Coffee
 import com.stfalcon.frescoimageviewer.ImageViewer
-import kotlinx.android.synthetic.main.fragment_add_coffee.*
 import java.lang.Exception
 
 class CoffeeDetailFragment : Fragment() {
@@ -62,7 +61,7 @@ class CoffeeDetailFragment : Fragment() {
 
         if (imageRes != 0) {
             imgCoffee?.setImageResource(imageRes)
-            path = Uri.parse("android.resource://at.tu.graz.coffee/" + imageRes)
+            path = Uri.parse("android.resource://at.tu.graz.coffee/$imageRes")
         } else {
             path = Uri.parse(coffee.image)
             imgCoffee?.setImageURI(path)

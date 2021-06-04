@@ -16,14 +16,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.model.Coffee
 import at.tu.graz.coffee.model.CoffeeType
-import at.tu.graz.coffee.ui.filter_result.FilterResultViewModel
-import at.tu.graz.coffee.ui.filter_result.FilterResultViewModelFactory
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
 import com.stfalcon.frescoimageviewer.ImageViewer
 import kotlinx.coroutines.GlobalScope

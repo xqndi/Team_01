@@ -27,10 +27,6 @@ class CommentAdapter(context: Context, reviewList:MutableList<Review>): BaseAdap
         return position.toLong()
     }
 
-    fun getData(): MutableList<Review> {
-        return mReviewList
-    }
-
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val rowView: View
         val layoutInflater = LayoutInflater.from(mContext)
