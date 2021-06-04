@@ -99,6 +99,7 @@ class AddCoffeeFragment : Fragment() {
             )
             phonePictures.addFlags(FLAG_GRANT_READ_URI_PERMISSION)
             phonePictures.addFlags(FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+            @Suppress("DEPRECATION")
             startActivityForResult(phonePictures, pictureSelector)
         }
 
@@ -141,6 +142,7 @@ class AddCoffeeFragment : Fragment() {
     }
 
     override fun onActivityResult(neededPart: Int, outcomePart: Int, info: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(neededPart, outcomePart, info)
 
         if (neededPart == pictureSelector) {
