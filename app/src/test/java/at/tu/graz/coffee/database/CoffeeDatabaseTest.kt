@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.test.platform.app.InstrumentationRegistry
 import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeType
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
 import junit.framework.TestCase
@@ -245,5 +246,6 @@ fun <T> getOrAwaitValue(liveData: LiveData<T>): T? {
     }
     liveData.observeForever(observer)
     latch.await(2, TimeUnit.SECONDS)
+    @Suppress("UNCHECKED_CAST")
     return data[0] as T?
 }

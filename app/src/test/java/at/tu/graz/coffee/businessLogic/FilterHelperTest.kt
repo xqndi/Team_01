@@ -3,6 +3,8 @@ package at.tu.graz.coffee.businessLogic
 import at.tu.graz.coffee.businessLogic.FilterHelper.Companion.checkReviews
 import at.tu.graz.coffee.businessLogic.FilterHelper.Companion.filterCoffee
 import at.tu.graz.coffee.model.Coffee
+import at.tu.graz.coffee.model.CoffeeType
+import at.tu.graz.coffee.model.CoffeeType.*
 import at.tu.graz.coffee.model.CoffeeWithReviews
 import at.tu.graz.coffee.model.Review
 import junit.framework.TestCase
@@ -12,7 +14,7 @@ class FilterHelperTest : TestCase() {
         CoffeeWithReviews(
             Coffee(
                 "Caffe Crema", 9.00, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "spar_premium_caffe_crema"
             ), listOf(
                 Review(1, 2, 10, "Just a comment", 1),
@@ -27,63 +29,63 @@ class FilterHelperTest : TestCase() {
         CoffeeWithReviews(
             Coffee(
                 "Barista Espresso", 3.50, "Amazon",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_barista_espresso"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Black and White", 5.0, "Billa",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_black_and_white"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Caffe Crema", 9.00, "Spar",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "spar_premium_caffe_crema"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Barista Espresso", 3.50, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_barista_espresso"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Black and White", 5.0, "Amazon",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_black_and_white"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Caffe Crema", 9.00, "Billa",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "spar_premium_caffe_crema"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Barista Espresso", 3.50, "Spar",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_barista_espresso"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_black_and_white"
             ), listOf()
         ),
         CoffeeWithReviews(
             Coffee(
                 "Black and White", 5.0, "Supermarket",
-                CoffeeType.NONE, 1.00, 1, " ",
+                NONE, 1.00, 1, " ",
                 "tchibo_black_and_white"
             ), listOf()
         )
