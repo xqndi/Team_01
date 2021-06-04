@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import at.tu.graz.coffee.R
-import at.tu.graz.coffee.javaHelper.EmailSender
+import at.tu.graz.coffee.businessLogic.EmailSender
 import kotlinx.android.synthetic.main.fragment_support.*
 import android.widget.Toast
 class SupportViewFragment : Fragment() {
