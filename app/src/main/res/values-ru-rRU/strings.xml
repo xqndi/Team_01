@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Кофе</string>
     <string name="action_settings">Настройки</string>
@@ -53,11 +54,10 @@
     <string name="quantity_add_lbl">Количество [кг]:</string>
     <string name="coffee_added">Добавление кофе</string>
     <string name="hungarian">венгерский язык</string>
-    <string name="quantity">%.2f кг</string>
+    <string name="quantity" translatable="false">%.2f кг</string>
     <string name="comment_added">Комментарий добавлен</string>
     <string name="none">Hи один</string>
     <string name="arabica">Арабика</string>
     <string name="robusta">Робуста</string>
     <string name="mixed">Смешанный</string>
-
 </resources>
