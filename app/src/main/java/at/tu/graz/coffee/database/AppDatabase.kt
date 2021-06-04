@@ -1,4 +1,4 @@
-package at.tu.graz.coffee.controller
+package at.tu.graz.coffee.database
 
 import android.content.Context
 import androidx.room.Database

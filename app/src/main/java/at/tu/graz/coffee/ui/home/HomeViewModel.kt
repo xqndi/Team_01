@@ -1,7 +1,7 @@
 package at.tu.graz.coffee.ui.home
 
 import androidx.lifecycle.*
-import at.tu.graz.coffee.controller.CoffeeRepository
+import at.tu.graz.coffee.database.CoffeeRepository
 import at.tu.graz.coffee.model.CoffeeWithReviews
 
 class HomeViewModel(repository: CoffeeRepository) : ViewModel() {

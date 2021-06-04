@@ -1,4 +1,4 @@
-package at.tu.graz.coffee.javaHelper
+package at.tu.graz.coffee.businessLogic
 
 import android.os.AsyncTask
 import java.util.*
