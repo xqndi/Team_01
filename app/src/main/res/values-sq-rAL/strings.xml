@@ -55,4 +55,9 @@
     <string name="hungarian">Hungarez</string>
     <string name="quantity">%.2f kg</string>
     <string name="comment_added">Komenti u shtua</string>
+    <string name="none">Asnjë</string>
+    <string name="arabica">Arabica</string>
+    <string name="robusta">Robusta</string>
+    <string name="mixed">Të përziera</string>
+
 </resources>

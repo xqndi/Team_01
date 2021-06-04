@@ -55,4 +55,9 @@
     <string name="hungarian">венгерский язык</string>
     <string name="quantity" translatable="false">%.2f кг</string>
     <string name="comment_added">Комментарий добавлен</string>
+    <string name="none">Hи один</string>
+    <string name="arabica">Арабика</string>
+    <string name="robusta">Робуста</string>
+    <string name="mixed">Смешанный</string>
+
 </resources>
