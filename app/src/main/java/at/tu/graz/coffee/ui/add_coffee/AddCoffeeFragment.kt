@@ -22,7 +22,6 @@ import at.tu.graz.coffee.R
 import at.tu.graz.coffee.businessLogic.CoffeeTypeHelper.Companion.getCoffeeTypeStringList
 import at.tu.graz.coffee.businessLogic.CoffeeTypeHelper.Companion.getEnumTypeFromCoffeeTypeName
 import at.tu.graz.coffee.model.Coffee
-import at.tu.graz.coffee.model.CoffeeType
 import kotlinx.android.synthetic.main.fragment_add_coffee.*
 import com.stfalcon.frescoimageviewer.ImageViewer
 import kotlinx.coroutines.GlobalScope
@@ -105,7 +104,7 @@ class AddCoffeeFragment : Fragment() {
             startActivityForResult(phonePictures, pictureSelector)
         }
 
-        spinner_type?.adapter = adapter;
+        spinner_type?.adapter = adapter
 
         spinner_type.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -160,7 +159,7 @@ class AddCoffeeFragment : Fragment() {
                 val takeFlags: Int = FLAG_GRANT_READ_URI_PERMISSION
                 contentResolver.takePersistableUriPermission(uriPicture!!, takeFlags)
 
-                val uri: MutableList<Uri> = ArrayList<Uri>()
+                val uri: MutableList<Uri> = ArrayList()
                 uri.add(uriPicture!!)
 
                 imageView.setOnClickListener {

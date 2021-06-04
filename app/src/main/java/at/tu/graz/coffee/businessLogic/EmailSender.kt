@@ -9,7 +9,7 @@ import javax.mail.internet.MimeMessage
 class EmailSender : AsyncTask<String?, String?, Void?>() {
     private val username = "agilesoftwaredev2021@gmail.com"
     private val password = "Bismarck0104"
-    var props = Properties()
+    private var props = Properties()
 
     override fun doInBackground(vararg p0: String?): Void? {
         send(p0[0], p0[1])

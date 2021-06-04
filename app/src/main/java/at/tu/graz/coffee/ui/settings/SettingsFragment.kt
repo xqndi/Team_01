@@ -72,6 +72,7 @@ class SettingsFragment : Fragment() {
         val displayMetricsToSet = usedResource.displayMetrics
 
         configurationToSet.setLocale(Locale(languageToSet))
+        @Suppress("DEPRECATION")
         usedResource.updateConfiguration(configurationToSet, displayMetricsToSet)
         val currentUpdater = Intent(context, MainActivity::class.java)
         startActivity(currentUpdater)

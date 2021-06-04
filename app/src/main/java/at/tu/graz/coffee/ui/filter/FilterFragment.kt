@@ -14,8 +14,6 @@ import androidx.navigation.Navigation
 import at.tu.graz.coffee.CoffeeApplication
 import at.tu.graz.coffee.R
 import at.tu.graz.coffee.businessLogic.FilterHelper.Companion.filterCoffee
-import at.tu.graz.coffee.model.CoffeeWithReviews
-import at.tu.graz.coffee.model.Review
 import com.google.android.material.slider.RangeSlider
 
 

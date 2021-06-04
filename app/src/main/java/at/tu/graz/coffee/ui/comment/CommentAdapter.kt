@@ -1,5 +1,6 @@
 package at.tu.graz.coffee.ui.comment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class CommentAdapter(context: Context, reviewList:MutableList<Review>): BaseAdap
         return position.toLong()
     }
 
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val rowView: View
         val layoutInflater = LayoutInflater.from(mContext)

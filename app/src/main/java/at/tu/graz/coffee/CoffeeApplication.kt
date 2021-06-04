@@ -1,5 +1,6 @@
 package at.tu.graz.coffee
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import at.tu.graz.coffee.database.AppDatabase
@@ -17,6 +18,7 @@ class CoffeeApplication : Application() {
         AppDatabase.getReviewInstance(this, applicationScope)) }
 
     companion object {
+        @SuppressLint("StaticFieldLeak")
         var ctx: Context? = null
     }
 
