@@ -84,7 +84,7 @@ class MenuTest {
 
         val navigationMenuItemView2 = onView(
             allOf(
-                withId(R.id.nav_search),
+                withId(R.id.nav_filter),
                 childAtPosition(
                     allOf(
                         withId(R.id.design_navigation_view),

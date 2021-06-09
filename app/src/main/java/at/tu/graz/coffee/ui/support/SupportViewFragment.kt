@@ -14,17 +14,11 @@ import android.widget.Toast
 
 class SupportViewFragment : Fragment() {
 
-    private lateinit var btn: Button
-    private lateinit var emailToSend: String
-    private lateinit var supportViewModel: SupportViewModel
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        supportViewModel =
-                ViewModelProvider(this).get(SupportViewModel::class.java)
-
         return inflater.inflate(R.layout.fragment_support, container, false)
     }
 
@@ -32,18 +26,23 @@ class SupportViewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_sendEmail?.setOnClickListener {
-            var id: Int = radio_group.checkedRadioButtonId
+            val id: Int = radio_group.checkedRadioButtonId
 
+            var emailToSend = "john.tusha@student.tugraz.at"
             if (id == rdbtn_Owner.id) {
                 emailToSend = "smartcoffeehelp@gmail.com"
             };
             else {
                 emailToSend = "smartcoffeehelp@gmail.com"
             }
+
             val sender = EmailSender()
             sender.execute(emailToSend, txt_supportMsg.text.toString())
 
             Toast.makeText(activity, R.string.emailConfirm, Toast.LENGTH_SHORT).show()
+            txt_supportMsg.text.clear()
+
+            Toast.makeText(activity,R.string.emailConfirm,Toast.LENGTH_SHORT).show()
         }
 
     }

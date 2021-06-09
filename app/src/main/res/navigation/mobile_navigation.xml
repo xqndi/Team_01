@@ -17,22 +17,44 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_filter_result"
+        android:name="at.tu.graz.coffee.ui.filter_result.FilterResultFragment"
+        android:label="@string/filter_result"
+        tools:layout="@layout/fragment_filter_result" >
+
+        <argument
+            android:name="filtered_coffee_list"
+            app:argType="integer[]"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <action
+            android:id="@+id/action_open_details"
+            app:destination="@id/nav_details" />
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_addCoffee"
-        android:name="at.tu.graz.coffee.ui.gallery.GalleryFragment"
+        android:name="at.tu.graz.coffee.ui.add_coffee.AddCoffeeFragment"
         android:label="@string/menu_addCoffee"
-        tools:layout="@layout/fragment_add_coffee" />
+        tools:layout="@layout/fragment_add_coffee">
+
+        <action
+            android:id="@+id/action_open_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_filter"
         android:name="at.tu.graz.coffee.ui.filter.FilterFragment"
         android:label="@string/menu_filter"
-        tools:layout="@layout/fragment_filter" />
+        tools:layout="@layout/fragment_filter">
 
-    <fragment
-        android:id="@+id/nav_search"
-        android:name="at.tu.graz.coffee.ui.support.SupportViewFragment"
-        android:label="@string/menu_search"
-        tools:layout="@layout/fragment_support" />
+        <action
+            android:id="@+id/action_open_filter_result"
+            app:destination="@id/nav_filter_result" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_support"
@@ -51,5 +73,15 @@
             app:argType="integer"
             android:defaultValue="-1"/>
     </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="at.tu.graz.coffee.ui.comment.CommentFragment"
+        android:label="CommentFragment" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="at.tu.graz.coffee.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

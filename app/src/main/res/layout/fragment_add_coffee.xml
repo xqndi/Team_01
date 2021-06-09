@@ -1,21 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_addCoffee"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mandatory_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/mandatory_field"
+            android:textAlignment="center"
+            android:textColor="#CA0B0B"
+            android:visibility="gone" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="30dp"
+            android:textAlignment="center">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coffee_name" />
+
+                <EditText
+                    android:id="@+id/coffee_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coffee_type" />
+
+                <Spinner
+                    android:id="@+id/spinner_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/available_at" />
+
+                <EditText
+                    android:id="@+id/coffee_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price_add_lbl" />
+
+                <EditText
+                    android:id="@+id/coffee_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quantity_add_lbl" />
+
+                <EditText
+                    android:id="@+id/coffee_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/strength" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/coffee_strength"
+                    android:layout_width="210dp"
+                    android:layout_height="47dp"
+                    android:layout_weight="2"
+                    android:stepSize="1"
+                    android:valueFrom="0"
+                    android:valueTo="5" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/additional_information" />
+
+                <EditText
+                    android:id="@+id/txt_additional_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="@string/picture" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="200dp"
+                    android:maxHeight="200dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/button_addPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_span="2"
+                    android:text="@string/add_picture" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/button_addCoffee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/Add_coffee" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
