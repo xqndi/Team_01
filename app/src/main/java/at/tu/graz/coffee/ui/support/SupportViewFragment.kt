@@ -27,7 +27,7 @@ class SupportViewFragment : Fragment() {
 
             var emailToSend = "smartcoffeehelp@gmail.com"
             if (id == rdbtn_Owner.id) {
-                emailToSend = "burimvrella@gmail.com"
+                emailToSend = "smartcoffeehelp@gmail.com"
             }
 
             val sender = EmailSender()
