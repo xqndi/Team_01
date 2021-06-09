@@ -38,7 +38,7 @@ class SupportViewFragment : Fragment() {
                 emailToSend = "smartcoffeehelp@gmail.com"
             };
             else {
-                emailToSend = "john.tusha@student.tugraz.at"
+                emailToSend = "smartcoffeehelp@gmail.com"
             }
             val sender = EmailSender()
             sender.execute(emailToSend, txt_supportMsg.text.toString())
