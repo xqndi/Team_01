@@ -11,6 +11,7 @@ import at.tu.graz.coffee.R
 import at.tu.graz.coffee.javaHelper.EmailSender
 import kotlinx.android.synthetic.main.fragment_support.*
 import android.widget.Toast
+
 class SupportViewFragment : Fragment() {
 
     private lateinit var btn: Button
@@ -36,14 +37,13 @@ class SupportViewFragment : Fragment() {
             if (id == rdbtn_Owner.id) {
                 emailToSend = "johntusha04@gmail.com"
             };
-            else
-            {
+            else {
                 emailToSend = "john.tusha@student.tugraz.at"
             }
             val sender = EmailSender()
             sender.execute(emailToSend, txt_supportMsg.text.toString())
 
-            Toast.makeText(activity,R.string.emailConfirm,Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, R.string.emailConfirm, Toast.LENGTH_SHORT).show()
         }
 
     }
