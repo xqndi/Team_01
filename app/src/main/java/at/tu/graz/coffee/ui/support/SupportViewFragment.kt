@@ -25,7 +25,7 @@ class SupportViewFragment : Fragment() {
         btn_sendEmail?.setOnClickListener {
             val id: Int = radio_group.checkedRadioButtonId
 
-            var emailToSend = "john.tusha@student.tugraz.at"
+            var emailToSend = "smartcoffeehelp@gmail.com"
             if (id == rdbtn_Owner.id) {
                 emailToSend = "burimvrella@gmail.com"
             }
